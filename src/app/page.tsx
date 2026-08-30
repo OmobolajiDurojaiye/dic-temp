@@ -1,58 +1,37 @@
 import React from "react";
 import Link from "next/link";
 import {
-  ShieldCheck,
-  FileSearch,
-  Calculator,
-  Briefcase,
-  Info,
-  FileText,
-  ArrowRight,
-  Award,
-  Building2,
-  ChevronRight
+  ArrowRight
 } from "lucide-react";
 import { FIRM_INFO, SERVICES_DATA, TEAM_DATA, CLIENTS_DATA, FAQS_DATA } from "@/data/firmData";
 import ClientLogo from "@/components/ClientLogo";
 import TickMark from "@/components/TickMark";
 import TeamAvatar from "@/components/TeamAvatar";
+import Workpaper from "@/components/Workpaper";
+import MembershipCard from "@/components/MembershipCard";
+import Seal from "@/components/Seal";
+import LedgerGraphic from "@/components/LedgerGraphic";
 
 export default function HomePage() {
   const principalPartner = TEAM_DATA[0];
-
-  const getServiceIcon = (slug: string) => {
-    switch (slug) {
-      case "audit-and-assurance":
-        return <ShieldCheck className="w-6 h-6 text-[#B08D3E]" />;
-      case "external-audit":
-        return <FileSearch className="w-6 h-6 text-[#B08D3E]" />;
-      case "tax-management-and-advisory":
-        return <Calculator className="w-6 h-6 text-[#B08D3E]" />;
-      case "accounting-software-consultancy":
-        return <Briefcase className="w-6 h-6 text-[#B08D3E]" />;
-      case "special-purpose-audit":
-        return <Info className="w-6 h-6 text-[#B08D3E]" />;
-      case "financial-reporting":
-        return <FileText className="w-6 h-6 text-[#B08D3E]" />;
-      default:
-        return <ShieldCheck className="w-6 h-6 text-[#B08D3E]" />;
-    }
-  };
+  const flagshipService = SERVICES_DATA[0];
+  const subServices = SERVICES_DATA.slice(1, 3);
+  const remainingServices = SERVICES_DATA.slice(3);
 
   return (
-    <div className="flex flex-col bg-[#F6F2E9]">
-      {/* 1. HERO SECTION - Ink Navy */}
-      <section className="relative bg-[#101F38] text-white overflow-hidden py-16 lg:py-24 border-b border-[#B08D3E]/30">
+    <div className="flex flex-col bg-[#F6F2E9] overflow-x-clip">
+      {/* 1. HERO SECTION - Layered Asymmetric Depth */}
+      <section className="relative bg-[#101F38] text-white overflow-visible pt-16 pb-24 lg:pt-24 lg:pb-32 border-b border-[#B08D3E]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#B08D3E]/40 text-[#B08D3E] text-[11px] font-mono font-bold tracking-wider uppercase">
+            <div className="lg:col-span-7 space-y-6 z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#B08D3E]/40 text-[#B08D3E] text-[11px] font-mono font-bold tracking-wider uppercase rounded-md">
                 <TickMark variant="rust" size="sm" />
-                <span>FRC & Auditor General Registered Audit Firm</span>
+                <span>FRC & Auditor General Registered Audit Practice</span>
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white">
                 Statutory Audit, Corporate Tax & Financial Advisory in Nigeria
               </h1>
 
@@ -65,14 +44,14 @@ export default function HomePage() {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3.5 bg-[#B08D3E] text-[#101F38] font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-sm"
+                  className="inline-flex items-center justify-center px-6 py-3.5 bg-[#B08D3E] text-[#101F38] font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-md rounded-md"
                 >
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-6 py-3.5 bg-transparent border border-[#B08D3E]/50 text-white font-mono font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+                  className="inline-flex items-center justify-center px-6 py-3.5 bg-transparent border border-[#B08D3E]/60 text-white font-mono font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all rounded-md"
                 >
                   Explore Our 6 Services
                 </Link>
@@ -112,91 +91,90 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Hero Card: Principal Partner Spotlight */}
-            <div className="lg:col-span-5">
-              <div className="bg-[#0C172B] border border-[#B08D3E]/40 p-6 sm:p-8 rounded-none shadow-2xl relative brass-corner-card !bg-[#0C172B]">
-                <div className="flex items-center gap-4 mb-5">
+            {/* Right Hero Card: Overlapping Rotated Workpaper Object */}
+            <div className="lg:col-span-5 relative lg:-ml-6 z-20">
+              <Workpaper rotation={-3} refCode="WP-PARTNER-01" className="max-w-md mx-auto">
+                <div className="flex items-center gap-4 mb-4">
                   <TeamAvatar
                     name={principalPartner.name}
                     photoUrl={principalPartner.photoUrl}
                     size="lg"
                   />
                   <div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold text-[#B08D3E] uppercase tracking-wider">
                       <TickMark variant="rust" size="sm" />
-                      <span className="text-[10px] font-mono text-[#B08D3E] font-bold uppercase tracking-widest">
-                        Principal Partner
-                      </span>
+                      <span>Principal Partner</span>
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-white leading-snug mt-0.5">
+                    <h3 className="font-serif font-bold text-[#101F38] text-lg leading-snug mt-0.5">
                       {principalPartner.name}
                     </h3>
-                    <p className="text-[11px] font-mono text-slate-400 mt-0.5">
+                    <p className="text-[11px] font-mono text-[#5B6B7F] mt-0.5">
                       {principalPartner.credentials}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed font-sans line-clamp-4">
+                <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed line-clamp-4 mb-4">
                   {principalPartner.shortBio}
                 </p>
 
-                <div className="mt-5 pt-4 border-t border-[#5B6B7F]/30 flex items-center justify-between">
+                <div className="pt-3 border-t border-[#5B6B7F]/15 flex items-center justify-between">
                   <Link
                     href={`/team/${principalPartner.slug}`}
-                    className="text-xs font-mono font-bold text-[#B08D3E] hover:underline inline-flex items-center gap-1 uppercase tracking-wider"
+                    className="font-mono text-xs font-bold text-[#101F38] hover:text-[#B08D3E] inline-flex items-center gap-1 uppercase tracking-wider"
                   >
-                    <span>Read Partner Bio</span>
+                    <span>Read Executive Profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                    REF: DIC-EXEC-01
+                  <span className="font-mono text-[9px] text-[#5B6B7F]/60 uppercase tracking-widest">
+                    VERIFIED // ICAN
                   </span>
                 </div>
-              </div>
+              </Workpaper>
             </div>
+          </div>
+        </div>
+
+        {/* 2. OVERLAPPING PHYSICAL SEALS ON SECTION BOUNDARY */}
+        <div className="absolute -bottom-14 left-0 right-0 z-30 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center lg:justify-start gap-4 sm:gap-8 flex-wrap pointer-events-auto">
+            <Seal
+              title="FRC NIGERIA"
+              subtitle="REGISTERED AUDIT"
+              code="REG # FRC/2026"
+              rotation={-4}
+              size="md"
+            />
+            <Seal
+              title="AUDITOR GENERAL"
+              subtitle="OF THE FEDERATION"
+              code="PUBLIC SECTOR"
+              rotation={3}
+              size="md"
+            />
+            <Seal
+              title="ICAN & CITN"
+              subtitle="CHARTERED FELLOWS"
+              code="TAX & AUDIT"
+              rotation={-2}
+              size="md"
+            />
           </div>
         </div>
       </section>
 
-      {/* 2. REGULATORY ACCREDITATIONS TICKER */}
-      <section className="bg-[#F6F2E9] py-5 border-b border-[#5B6B7F]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#5B6B7F]">
-              Statutory Reg. & Accreditations:
-            </span>
-            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 font-mono text-[11px] text-[#101F38]">
-              <span className="bg-white px-3 py-1.5 border border-[#B08D3E]/30 flex items-center gap-1.5">
-                <TickMark variant="rust" size="sm" />
-                <span>Financial Reporting Council (FRC)</span>
-              </span>
-              <span className="bg-white px-3 py-1.5 border border-[#B08D3E]/30 flex items-center gap-1.5">
-                <TickMark variant="rust" size="sm" />
-                <span>Auditor General of Federation</span>
-              </span>
-              <span className="bg-white px-3 py-1.5 border border-[#B08D3E]/30 flex items-center gap-1.5">
-                <TickMark variant="rust" size="sm" />
-                <span>ICAN Licensed</span>
-              </span>
-              <span className="bg-white px-3 py-1.5 border border-[#B08D3E]/30 flex items-center gap-1.5">
-                <TickMark variant="rust" size="sm" />
-                <span>CITN Certified</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Spacing buffer for overlapping seals */}
+      <div className="h-16 lg:h-20 bg-[#F6F2E9]" />
 
-      {/* 3. CORE SERVICES - Parchment background with Flat Brass-Bordered Cards */}
+      {/* 3. ASYMMETRIC SERVICES SECTION */}
       <section className="py-16 lg:py-24 bg-[#F6F2E9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#B08D3E] mb-2">
               <TickMark variant="brass" size="sm" />
-              <span>Practice Areas</span>
+              <span>Practice Portfolio</span>
             </div>
-            <h2 className="font-serif text-3xl font-bold text-[#101F38] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#101F38] tracking-tight">
               Audit, Tax & Financial Advisory Services
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-[#5B6B7F] font-sans">
@@ -204,52 +182,105 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES_DATA.map((service, index) => (
-              <div
-                key={service.slug}
-                className="brass-corner-card p-8 flex flex-col justify-between hover:border-[#B08D3E] transition-all group"
+          {/* Asymmetric Service Layout: 1 Featured Large Workpaper + 2 Staggered Beside It */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+            {/* Featured Flagship Service Workpaper */}
+            <div className="lg:col-span-7">
+              <Workpaper
+                rotation={-2}
+                refCode="WP-FLAGSHIP-01"
+                className="h-full flex flex-col justify-between"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#5B6B7F]/15">
-                    <span className="font-mono text-xs font-bold text-[#B08D3E]">
-                      0{index + 1}.
-                    </span>
-                    <span className="text-[10px] font-mono text-[#5B6B7F] uppercase tracking-widest">
-                      SERVICE
-                    </span>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#B08D3E] uppercase tracking-wider">
+                    <TickMark variant="rust" size="sm" />
+                    <span>Flagship Practice Area</span>
                   </div>
 
-                  <div className="w-12 h-12 bg-[#F6F2E9] border border-[#B08D3E]/30 flex items-center justify-center mb-5">
-                    {getServiceIcon(service.slug)}
-                  </div>
-
-                  <h3 className="font-serif text-lg font-bold text-[#101F38] group-hover:text-[#B08D3E] transition-colors mb-3">
-                    {service.title}
+                  <h3 className="font-serif text-2xl font-bold text-[#101F38]">
+                    {flagshipService.title}
                   </h3>
 
-                  <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed mb-6">
-                    {service.shortSummary}
+                  <p className="text-xs sm:text-sm text-[#5B6B7F] font-sans leading-relaxed">
+                    {flagshipService.answerFirst}
                   </p>
+
+                  <div className="py-2">
+                    <LedgerGraphic slug={flagshipService.slug} />
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#5B6B7F]/15 flex items-center justify-between">
+                <div className="pt-6 border-t border-[#5B6B7F]/15 flex items-center justify-between">
                   <Link
-                    href={`/services/${service.slug}`}
-                    className="font-mono text-xs font-bold text-[#101F38] group-hover:text-[#B08D3E] inline-flex items-center gap-1.5 uppercase tracking-wider"
+                    href={`/services/${flagshipService.slug}`}
+                    className="font-mono text-xs font-bold text-[#101F38] hover:text-[#B08D3E] inline-flex items-center gap-1.5 uppercase tracking-wider"
                   >
-                    <span>View Service Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <span>Read Full Service Scope</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
+              </Workpaper>
+            </div>
+
+            {/* Staggered Sub-Services Beside It */}
+            <div className="lg:col-span-5 space-y-6">
+              {subServices.map((service, sIdx) => (
+                <Workpaper
+                  key={service.slug}
+                  rotation={sIdx === 0 ? 3 : -1}
+                  refCode={`WP-SERVICE-0${sIdx + 2}`}
+                >
+                  <h4 className="font-serif text-lg font-bold text-[#101F38] mb-2">
+                    {service.title}
+                  </h4>
+                  <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed mb-4">
+                    {service.shortSummary}
+                  </p>
+                  <div className="pt-3 border-t border-[#5B6B7F]/15 flex items-center justify-between">
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="font-mono text-xs font-bold text-[#101F38] hover:text-[#B08D3E] inline-flex items-center gap-1 uppercase tracking-wider"
+                    >
+                      <span>Explore Scope</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </Workpaper>
+              ))}
+            </div>
+          </div>
+
+          {/* Remaining 3 Services in Staggered Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {remainingServices.map((service, rIdx) => (
+              <Workpaper
+                key={service.slug}
+                rotation={rIdx === 0 ? -2 : rIdx === 1 ? 2 : -1}
+                refCode={`WP-SERVICE-0${rIdx + 4}`}
+              >
+                <h4 className="font-serif text-base font-bold text-[#101F38] mb-2">
+                  {service.title}
+                </h4>
+                <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed mb-4">
+                  {service.shortSummary}
+                </p>
+                <div className="pt-3 border-t border-[#5B6B7F]/15 flex items-center justify-between">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="font-mono text-xs font-bold text-[#101F38] hover:text-[#B08D3E] inline-flex items-center gap-1 uppercase tracking-wider"
+                  >
+                    <span>View Details</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </Workpaper>
             ))}
           </div>
 
           <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-[#101F38] text-white border border-[#B08D3E] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#B08D3E] hover:text-[#101F38] transition-all"
+              className="inline-flex items-center justify-center px-6 py-3.5 bg-[#101F38] text-white border border-[#B08D3E] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#B08D3E] hover:text-[#101F38] transition-all rounded-md"
             >
               <span>Explore Complete Services Directory</span>
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -258,7 +289,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. ABOUT & VALUE PROPOSITION - Dense Ink Navy Section */}
+      {/* 4. ABOUT & VALUE PROPOSITION - Dense Ink Navy */}
       <section className="py-16 lg:py-20 bg-[#101F38] text-white border-t border-[#B08D3E]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -286,55 +317,55 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Core Values Callout Grid */}
+            {/* Core Values Callout Grid with Rotated Workpaper Overlays */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-5 bg-[#0C172B] border border-[#B08D3E]/30">
+              <Workpaper rotation={-2} dark={true} refCode="VAL-INTEGRITY">
                 <div className="flex items-center gap-2 text-[#B08D3E] font-mono text-xs font-bold mb-1.5">
                   <TickMark variant="rust" size="sm" />
                   <span>Integrity & Ethics</span>
                 </div>
                 <p className="text-xs text-slate-300 font-sans">Uncompromising adherence to professional ethics and objectivity in all audit engagements.</p>
-              </div>
-              <div className="p-5 bg-[#0C172B] border border-[#B08D3E]/30">
+              </Workpaper>
+              <Workpaper rotation={2} dark={true} refCode="VAL-ACCURACY">
                 <div className="flex items-center gap-2 text-[#B08D3E] font-mono text-xs font-bold mb-1.5">
                   <TickMark variant="rust" size="sm" />
                   <span>Accuracy & Diligence</span>
                 </div>
                 <p className="text-xs text-slate-300 font-sans">Meticulous verification under IFRS and Nigerian statutory reporting frameworks.</p>
-              </div>
-              <div className="p-5 bg-[#0C172B] border border-[#B08D3E]/30">
+              </Workpaper>
+              <Workpaper rotation={1} dark={true} refCode="VAL-ACCOUNTABLE">
                 <div className="flex items-center gap-2 text-[#B08D3E] font-mono text-xs font-bold mb-1.5">
                   <TickMark variant="rust" size="sm" />
                   <span>Accountability</span>
                 </div>
                 <p className="text-xs text-slate-300 font-sans">Clear, transparent reporting and round-the-clock client communication channels.</p>
-              </div>
-              <div className="p-5 bg-[#0C172B] border border-[#B08D3E]/30">
+              </Workpaper>
+              <Workpaper rotation={-1} dark={true} refCode="VAL-TECHNOLOGY">
                 <div className="flex items-center gap-2 text-[#B08D3E] font-mono text-xs font-bold mb-1.5">
                   <TickMark variant="rust" size="sm" />
                   <span>Systems & Technology</span>
                 </div>
                 <p className="text-xs text-slate-300 font-sans">Deploying leading accounting systems like QuickBooks, Sage, and ERP for streamlined operations.</p>
-              </div>
+              </Workpaper>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. KEY DRIVERS / TEAM SPOTLIGHT - Parchment */}
+      {/* 5. TEAM SPOTLIGHT - Fanned Membership Cards */}
       <section className="py-16 lg:py-24 bg-[#F6F2E9] border-t border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
             <div>
               <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#B08D3E] mb-2">
                 <TickMark variant="brass" size="sm" />
-                <span>Executive Leadership</span>
+                <span>Key Drivers & Leadership</span>
               </div>
               <h2 className="font-serif text-3xl font-bold text-[#101F38] tracking-tight">
-                Meet Our Key Drivers
+                Accredited Chartered Partners
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-[#5B6B7F] font-sans max-w-xl">
-                Our key drivers possess over fifteen years of accounting, audit, and tax experience, giving our firm the depth needed to accomplish desired results.
+                Physical professional credentials held by our principal drivers, with over 15 years of specialized audit and tax practice in Nigeria.
               </p>
             </div>
             <Link
@@ -346,48 +377,22 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM_DATA.slice(0, 3).map((member) => (
-              <div
+          {/* Fanned / Overlapping Membership Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {TEAM_DATA.slice(0, 3).map((member, idx) => (
+              <MembershipCard
                 key={member.slug}
-                className="brass-corner-card p-6 flex flex-col justify-between hover:border-[#B08D3E] transition-all"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <TeamAvatar
-                      name={member.name}
-                      photoUrl={member.photoUrl}
-                      size="md"
-                    />
-                    <div>
-                      <h3 className="font-serif font-bold text-[#101F38] text-base leading-snug">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#B08D3E] mt-0.5">
-                        {member.role}
-                      </p>
-                      <div className="flex items-center gap-1 mt-1 font-mono text-[10px] text-[#5B6B7F]">
-                        <TickMark variant="rust" size="sm" />
-                        <span>{member.credentials}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed line-clamp-3 mb-4">
-                    {member.shortBio}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#5B6B7F]/15 flex items-center justify-between">
-                  <Link
-                    href={`/team/${member.slug}`}
-                    className="font-mono text-xs font-bold text-[#101F38] hover:text-[#B08D3E] inline-flex items-center gap-1 uppercase tracking-wider"
-                  >
-                    <span>Read Bio & Qualifications</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
+                slug={member.slug}
+                name={member.name}
+                role={member.role}
+                credentials={member.credentials}
+                photoUrl={member.photoUrl}
+                shortBio={member.shortBio}
+                rotation={idx === 0 ? -3 : idx === 1 ? 2 : -2}
+                memberNo={`FRC/2026/ICAN/00${idx + 1}`}
+                specialties={member.specialties}
+                linkedin={member.linkedin}
+              />
             ))}
           </div>
         </div>
@@ -396,7 +401,7 @@ export default function HomePage() {
       {/* 6. CLIENTS & SECTORS PREVIEW */}
       <section className="py-16 bg-[#F6F2E9] border-t border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#B08D3E] mb-2">
               <TickMark variant="brass" size="sm" />
               <span>Proven Engagements</span>
@@ -409,8 +414,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Adaptive Client Logo Grid with Brass Corner Marks */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Adaptive Client Logo Grid with Physical Depth */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {CLIENTS_DATA.slice(0, 8).map((client) => (
               <ClientLogo
                 key={client.name}
@@ -448,13 +453,12 @@ export default function HomePage() {
 
           <div className="space-y-4">
             {FAQS_DATA.slice(0, 4).map((faq, index) => (
-              <div key={index} className="brass-corner-card p-6">
+              <Workpaper key={index} rotation={index % 2 === 0 ? -1 : 1} refCode={`FAQ-0${index + 1}`}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-xs font-bold text-[#B08D3E]">0{index + 1}.</span>
                   <h3 className="font-serif font-bold text-[#101F38] text-base">{faq.question}</h3>
                 </div>
-                <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed pl-6">{faq.answer}</p>
-              </div>
+                <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed">{faq.answer}</p>
+              </Workpaper>
             ))}
           </div>
 
@@ -482,14 +486,14 @@ export default function HomePage() {
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#B08D3E] text-[#101F38] font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#B08D3E] text-[#101F38] font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-lg rounded-md"
             >
               <span>Schedule a Consultation</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <a
               href={`tel:${FIRM_INFO.phoneE164}`}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border border-[#B08D3E]/60 text-white font-mono font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border border-[#B08D3E]/60 text-white font-mono font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all rounded-md"
             >
               <span>Call: {FIRM_INFO.phone}</span>
             </a>
