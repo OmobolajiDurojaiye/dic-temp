@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
+import { Public_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { FIRM_INFO } from "@/data/firmData";
+
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(FIRM_INFO.siteUrl),
@@ -127,17 +142,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased">
+    <html
+      lang="en"
+      className={`${publicSans.variable} ${ibmPlexMono.variable} h-full scroll-smooth antialiased`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <JsonLd data={organizationSchema} />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F6F2E9] text-[#101F38] font-sans selection:bg-[#B08D3E]/20 selection:text-[#101F38]">
+      <body className="min-h-full flex flex-col bg-[#F4F8FB] text-[#0B1E3D] font-sans selection:bg-[#3B9FE0]/20 selection:text-[#0B1E3D]">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

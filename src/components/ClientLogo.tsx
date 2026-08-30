@@ -19,7 +19,6 @@ export default function ClientLogo({
 }: ClientLogoProps) {
   const [imageError, setImageError] = useState(false);
 
-  // Clean initials for fallback monogram
   const initials = name
     .split(" ")
     .filter((w) => !["and", "&", "of", "the", "for", "in", "ltd", "gte", "limited"].includes(w.toLowerCase()))
@@ -32,10 +31,10 @@ export default function ClientLogo({
 
   return (
     <div
-      className={`brass-corner-card group flex flex-col justify-between p-6 ${className}`}
+      className={`flat-panel flex flex-col justify-between p-6 hover:border-[#3B9FE0] transition-colors ${className}`}
     >
-      {/* Adaptive Logo / Seal Container */}
-      <div className="w-full h-24 flex items-center justify-center p-2 bg-[#F6F2E9]/80 border border-[#5B6B7F]/10 overflow-hidden relative ledger-grid-bg">
+      {/* Logo Container */}
+      <div className="w-full h-20 flex items-center justify-center p-2 bg-[#F4F8FB] border border-[#5C7089]/15 rounded-[4px] overflow-hidden relative">
         {hasValidImage ? (
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -43,16 +42,16 @@ export default function ClientLogo({
               alt={`${name} Logo`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-              className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105"
+              className="object-contain max-h-full max-w-full"
               onError={() => setImageError(true)}
             />
           </div>
         ) : (
-          <div className="flex items-center gap-2.5 text-[#101F38]">
-            <div className="h-10 w-10 flex-shrink-0 border border-[#B08D3E]/40 bg-white text-[#101F38] flex items-center justify-center font-mono font-bold text-xs tracking-wider">
-              {initials || <Building2 className="w-5 h-5 text-[#B08D3E]" />}
+          <div className="flex items-center gap-2 text-[#0B1E3D]">
+            <div className="h-8 w-8 flex-shrink-0 bg-white border border-[#5C7089]/30 text-[#0B1E3D] flex items-center justify-center font-mono font-bold text-xs rounded-[4px]">
+              {initials || <Building2 className="w-4 h-4 text-[#3B9FE0]" />}
             </div>
-            <span className="font-serif font-bold text-xs tracking-wide text-[#101F38] text-center line-clamp-2">
+            <span className="font-sans font-bold text-xs tracking-tight text-[#0B1E3D] line-clamp-1">
               {name.split(" ")[0]}
             </span>
           </div>
@@ -60,12 +59,12 @@ export default function ClientLogo({
       </div>
 
       {/* Client Details */}
-      <div className="mt-4 pt-3 border-t border-[#5B6B7F]/15 flex flex-col flex-1 justify-between">
-        <h4 className="font-serif font-bold text-[#101F38] text-sm leading-snug line-clamp-2 group-hover:text-[#B08D3E] transition-colors">
+      <div className="mt-4 pt-3 border-t border-[#5C7089]/15 flex flex-col flex-1 justify-between">
+        <h4 className="font-sans font-bold text-[#0B1E3D] text-sm leading-snug line-clamp-2">
           {name}
         </h4>
         {category && (
-          <p className="text-[10px] font-mono uppercase tracking-wider text-[#5B6B7F] font-semibold mt-2">
+          <p className="text-[10px] font-mono uppercase tracking-wider text-[#5C7089] mt-2">
             {category}
           </p>
         )}
