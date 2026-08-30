@@ -6,16 +6,16 @@ interface LogoProps {
   light?: boolean;
 }
 
-export default function Logo({ className = "h-12 w-auto", light = false }: LogoProps) {
+export default function Logo({ className = "h-16 sm:h-20 w-auto", light = false }: LogoProps) {
   if (light) {
     return (
-      <div className="inline-flex items-center bg-white px-3 py-1.5 rounded-xl shadow-xs">
+      <div className="inline-flex items-center bg-white px-4 py-2.5 rounded-2xl shadow-xs">
         <Image
           src="/images/DIC-LOGO.png"
           alt="Daniel Isibor & Co (Chartered Accountants)"
-          width={180}
-          height={50}
-          className="h-9 w-auto object-contain"
+          width={280}
+          height={80}
+          className="h-14 w-auto object-contain"
           priority
         />
       </div>
@@ -27,9 +27,9 @@ export default function Logo({ className = "h-12 w-auto", light = false }: LogoP
       <Image
         src="/images/DIC-LOGO.png"
         alt="Daniel Isibor & Co (Chartered Accountants)"
-        width={220}
-        height={60}
-        className="h-11 sm:h-13 w-auto object-contain transition-all"
+        width={320}
+        height={90}
+        className={`${className} object-contain transition-all`}
         priority
       />
     </div>

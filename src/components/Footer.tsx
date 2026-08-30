@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Firm Bio */}
           <div className="space-y-4">
-            <Logo light className="h-10 w-auto" />
+            <Logo light />
             <p className="text-xs leading-relaxed text-slate-300 font-sans">
               Daniel Isibor & Co (Chartered Accountants) is an accredited audit, tax, and financial advisory practice based in Abuja, Nigeria. Providing IFRS-compliant assurance, corporate tax management, and accounting software consultancy.
             </p>

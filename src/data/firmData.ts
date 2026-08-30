@@ -322,14 +322,15 @@ export const TEAM_DATA: TeamMember[] = [
       "IFRS Financial Statement Compilation",
       "Organizational Capacity Building",
       "Corporate Governance & Compliance"
-    ]
+    ],
+    linkedin: "https://www.linkedin.com/in/rukayat-hassan-daniel-aca-acti-mba-035a3611a/"
   },
   {
     slug: "mayowa-omotosho",
     name: "Mayowa Omotosho",
     role: "Senior Manager – Compliance",
     credentials: "B.Sc (Accounting), Data & Systems Specialist",
-    photoUrl: "",
+    photoUrl: "/images/Mr Mayowa.png",
     shortBio:
       "Compliance and systems specialist skilled in financial analysis, Power BI, SQL, and management account preparation.",
     fullBio: [
@@ -349,7 +350,8 @@ export const TEAM_DATA: TeamMember[] = [
       "Management Accounting & Reporting",
       "Business Intelligence (Power BI & SQL)",
       "Cash Flow & Working Capital Optimization"
-    ]
+    ],
+    linkedin: "https://www.linkedin.com/in/mayowa-omotosho-0985b0124/"
   },
   {
     slug: "idris-husseini",
@@ -399,6 +401,18 @@ export const CLIENTS_DATA: ClientItem[] = [
     category: "Education & Institutional Management",
     description: "Financial reporting, payroll structuring, and software advisory.",
     logoUrl: "/images/Startrite Schools.jpeg"
+  },
+  {
+    name: "Springhall British School",
+    category: "Education & Institutional Management",
+    description: "Statutory external audit, accounting systems, and tax compliance.",
+    logoUrl: ""
+  },
+  {
+    name: "Abuja Schools Association",
+    category: "Education & Institutional Association",
+    description: "Advisory, regulatory compliance, and audit frameworks.",
+    logoUrl: ""
   },
   {
     name: "News Engineering (Nig.) Ltd",
