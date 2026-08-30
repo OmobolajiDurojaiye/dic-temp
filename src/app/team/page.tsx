@@ -27,9 +27,8 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   const teamPhotos = [
     "/images/Mr Daniel.jpeg",
-    "/images/stock/woman-professional.jpg",
+    "/images/Mrs Rukayat.jpeg",
     "/images/stock/man-suit.jpg",
-    "/images/stock/team-discussion.jpg",
     "/images/stock/team-collaboration.jpg"
   ];
 
@@ -56,7 +55,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl max-w-4xl">
             <p className="text-sm text-[#0e2a47] leading-relaxed font-medium">
-              The leadership of <strong>Daniel Isibor & Co (Chartered Accountants)</strong> in <strong>Abuja, Nigeria</strong> is headed by Principal Partner <strong>Daniel Isibor (ACA, ACTI, MCIB)</strong>, Senior Partner <strong>Rukayat Hassan-Daniel (ACA, ACTI)</strong>, and Tax Partner <strong>Chijioke Agbedo (ACA, CISA, ACFE)</strong>, supported by senior compliance and audit managers.
+              The leadership of <strong>Daniel Isibor & Co (Chartered Accountants)</strong> in <strong>Abuja, Nigeria</strong> is headed by Principal Partner <strong>Daniel Isibor (ACA, ACTI, MCIB)</strong> and Senior Partner <strong>Rukayat Hassan-Daniel (ACA, ACTI)</strong>, supported by senior compliance and audit managers.
             </p>
           </div>
         </div>

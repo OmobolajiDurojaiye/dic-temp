@@ -321,101 +321,41 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Principal Partner */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-              <div>
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <Image
-                    src="/images/Mr Daniel.jpeg"
-                    alt={principalPartner.name}
-                    fill
-                    className="object-cover object-top"
-                  />
+            {TEAM_DATA.slice(0, 3).map((member) => (
+              <div
+                key={member.slug}
+                className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
+                    <Image
+                      src={member.photoUrl && member.photoUrl.trim() !== "" ? member.photoUrl : "/images/stock/man-suit.jpg"}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <h3 className="font-bold text-lg text-[#0e2a47]">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs font-semibold text-[#143d6b] mt-0.5">
+                    {member.role} ({member.credentials})
+                  </p>
+                  <p className="text-xs text-slate-500 leading-relaxed mt-3">
+                    {member.shortBio}
+                  </p>
                 </div>
-                <h3 className="font-bold text-lg text-[#0e2a47]">
-                  {principalPartner.name}
-                </h3>
-                <p className="text-xs font-semibold text-[#143d6b] mt-0.5">
-                  {principalPartner.role} ({principalPartner.credentials})
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed mt-3">
-                  {principalPartner.shortBio}
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100">
-                <Link
-                  href={`/team/${principalPartner.slug}`}
-                  className="text-xs font-semibold text-[#143d6b] hover:text-[#2b70c9] inline-flex items-center gap-1"
-                >
-                  <span>View Full Profile</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Senior Partner */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-              <div>
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <Image
-                    src="/images/stock/woman-professional.jpg"
-                    alt={TEAM_DATA[1].name}
-                    fill
-                    className="object-cover object-top"
-                  />
+                <div className="pt-4 mt-4 border-t border-slate-100">
+                  <Link
+                    href={`/team/${member.slug}`}
+                    className="text-xs font-semibold text-[#143d6b] hover:text-[#2b70c9] inline-flex items-center gap-1"
+                  >
+                    <span>View Full Profile</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
-                <h3 className="font-bold text-lg text-[#0e2a47]">
-                  {TEAM_DATA[1].name}
-                </h3>
-                <p className="text-xs font-semibold text-[#143d6b] mt-0.5">
-                  {TEAM_DATA[1].role} ({TEAM_DATA[1].credentials})
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed mt-3">
-                  {TEAM_DATA[1].shortBio}
-                </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-slate-100">
-                <Link
-                  href={`/team/${TEAM_DATA[1].slug}`}
-                  className="text-xs font-semibold text-[#143d6b] hover:text-[#2b70c9] inline-flex items-center gap-1"
-                >
-                  <span>View Full Profile</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Tax Partner */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-              <div>
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <Image
-                    src="/images/stock/man-suit.jpg"
-                    alt={TEAM_DATA[2].name}
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <h3 className="font-bold text-lg text-[#0e2a47]">
-                  {TEAM_DATA[2].name}
-                </h3>
-                <p className="text-xs font-semibold text-[#143d6b] mt-0.5">
-                  {TEAM_DATA[2].role} ({TEAM_DATA[2].credentials})
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed mt-3">
-                  {TEAM_DATA[2].shortBio}
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100">
-                <Link
-                  href={`/team/${TEAM_DATA[2].slug}`}
-                  className="text-xs font-semibold text-[#143d6b] hover:text-[#2b70c9] inline-flex items-center gap-1"
-                >
-                  <span>View Full Profile</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

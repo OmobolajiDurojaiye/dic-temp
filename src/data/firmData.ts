@@ -298,7 +298,7 @@ export const TEAM_DATA: TeamMember[] = [
     name: "Rukayat Hassan-Daniel",
     role: "Senior Partner",
     credentials: "ACA, ACTI, MBA, B.Sc",
-    photoUrl: "",
+    photoUrl: "/images/Mrs Rukayat.jpeg",
     shortBio:
       "Goal-driven chartered accountant with 15+ years of specialized expertise in Financial Forecasting, NGO Accounting, and Capacity Building.",
     fullBio: [
@@ -322,36 +322,6 @@ export const TEAM_DATA: TeamMember[] = [
       "IFRS Financial Statement Compilation",
       "Organizational Capacity Building",
       "Corporate Governance & Compliance"
-    ]
-  },
-  {
-    slug: "chijioke-agbedo",
-    name: "Chijioke Agbedo",
-    role: "Partner – Tax Management & Advisory Services",
-    credentials: "ACA, AAT, CISA, ACFE",
-    photoUrl: "",
-    shortBio:
-      "Taxation, fraud investigation, and financial management specialist with over 10 years of professional consulting practice.",
-    fullBio: [
-      "Chijioke Agbedo holds a Bachelor’s degree in Accounting from the University of Abuja and is an accomplished Chartered Accountant. He is an Associate Member of both the Institute of Chartered Accountants of Nigeria (ICAN) and the Chartered Institute of Taxation of Nigeria (CITN).",
-      "In addition, Chijioke is a Certified Fraud Examiner (CFE) and a member of the Association of Certified Fraud Examiners (ACFE), bringing sophisticated investigative insight to tax and audit procedures.",
-      "With over 10 years of professional consulting practice, Chijioke’s core area of expertise lies in corporate taxation, complemented by extensive skills in financial management, fraud investigation, and IT systems audit. He previously served as Team Lead for Tax Matters at Umuhefe & Co. (Chartered Accountants) and later as Financial Controller at Safeline Microfinance Bank."
-    ],
-    education: [
-      "B.Sc. in Accounting – University of Abuja",
-      "Association of Accounting Technicians (AAT)"
-    ],
-    memberships: [
-      "Institute of Chartered Accountants of Nigeria (ICAN) – Associate (ACA)",
-      "Chartered Institute of Taxation of Nigeria (CITN) – Associate (ACTI)",
-      "Association of Certified Fraud Examiners (ACFE) – Certified Fraud Examiner (CFE)",
-      "Information Systems Audit and Control Association (ISACA) – CISA"
-    ],
-    specialties: [
-      "Corporate & Direct Tax Advisory",
-      "Tax Audit Defense & Resolution",
-      "Fraud Examination & Forensic Auditing",
-      "Information Systems & Financial Controls Audit"
     ]
   },
   {
