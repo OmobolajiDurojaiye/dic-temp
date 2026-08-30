@@ -3,21 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  ArrowUpRight,
-  ShieldCheck,
-  Award,
-  Users,
-  CheckCircle2
+  ArrowUpRight
 } from "lucide-react";
 import { FIRM_INFO, SERVICES_DATA, TEAM_DATA, CLIENTS_DATA, FAQS_DATA } from "@/data/firmData";
 import ClientLogo from "@/components/ClientLogo";
+import ClientMarquee from "@/components/ClientMarquee";
 
 export default function HomePage() {
   const principalPartner = TEAM_DATA[0];
 
   return (
     <div className="flex flex-col bg-white">
-      {/* 1. HERO SECTION - Clean Modern Layout Matching Reference */}
+      {/* 1. HERO SECTION - Clean, High-Contrast Modern Layout */}
       <section className="relative bg-[#f8fafc] py-12 lg:py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -99,10 +96,10 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
 
-              {/* Floating Amber Accent Arrow Button from Reference */}
+              {/* Floating Deep Blue Accent Arrow Button */}
               <Link
                 href="/services"
-                className="absolute -bottom-5 left-8 w-14 h-14 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] flex items-center justify-center rounded-2xl shadow-xl transition-transform hover:scale-105"
+                className="absolute -bottom-5 left-8 w-14 h-14 bg-[#0e2a47] hover:bg-[#143d6b] text-white flex items-center justify-center rounded-2xl shadow-xl transition-transform hover:scale-105"
                 aria-label="View our services"
               >
                 <ArrowUpRight className="w-7 h-7 stroke-[2.5]" />
@@ -112,7 +109,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. SERVICES SECTION - Deep Blue Background with Rounded White Cards (Matching Reference) */}
+      {/* 2. INFINITE MOVING CLIENT LOGOS MARQUEE */}
+      <ClientMarquee />
+
+      {/* 3. SERVICES SECTION - Deep Blue Background with Rounded White Cards */}
       <section className="bg-[#143d6b] py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -148,7 +148,7 @@ export default function HomePage() {
               </div>
             ))}
 
-            {/* 4th Card: Call to Action Card with Amber Button */}
+            {/* 4th Card: Call to Action Card */}
             <div className="bg-white text-[#0e2a47] p-8 rounded-3xl flex flex-col justify-between shadow-xl">
               <div>
                 <h3 className="font-bold text-xl leading-snug mb-3">
@@ -160,7 +160,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center w-full py-3 px-4 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] text-xs font-bold rounded-xl transition-colors shadow-sm"
+                className="inline-flex items-center justify-center w-full py-3 px-4 bg-[#0e2a47] hover:bg-[#143d6b] text-white text-xs font-bold rounded-xl transition-colors shadow-sm"
               >
                 <span>Request Proposal</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 stroke-[2.5]" />
@@ -196,7 +196,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. "YOUR TRUSTED ACCOUNTING PARTNER" (Matching Reference) */}
+      {/* 4. "YOUR TRUSTED ACCOUNTING PARTNER" */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -225,7 +225,7 @@ export default function HomePage() {
                 For over 15 years, Daniel Isibor & Co (Chartered Accountants) has provided accurate, timely, and personalized accounting, auditing, and tax advisory services to businesses across Abuja and Nigeria. Our mission is to simplify financial compliance so you can focus on growth.
               </p>
 
-              {/* 3 Feature Boxes with Soft Gray Background and Rounded Corners */}
+              {/* 3 Feature Boxes */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="bg-[#f8fafc] border border-slate-100 p-5 rounded-2xl">
                   <h4 className="font-bold text-sm text-[#0e2a47] mb-1">
@@ -259,7 +259,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. OUR IMPACT & STATS SECTION (Matching Reference) */}
+      {/* 5. OUR IMPACT & STATS SECTION */}
       <section className="bg-[#0e2a47] py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -299,7 +299,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. TEAM SPOTLIGHT - Human Executive Leadership Cards */}
+      {/* 6. TEAM SPOTLIGHT */}
       <section className="py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -321,7 +321,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Principal Partner - Mr Daniel Isibor */}
+            {/* Principal Partner */}
             <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
@@ -353,7 +353,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Senior Partner - Rukayat */}
+            {/* Senior Partner */}
             <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
@@ -385,7 +385,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Tax Partner - Chijioke */}
+            {/* Tax Partner */}
             <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-slate-100">
@@ -420,7 +420,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. CLIENT PORTFOLIO - Clean Logo Grid */}
+      {/* 7. CLIENT PORTFOLIO - Clean Equal Grid */}
       <section className="py-20 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -455,11 +455,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. FREQUENTLY ASKED QUESTIONS (Matching Reference Split Layout) */}
+      {/* 8. FREQUENTLY ASKED QUESTIONS */}
       <section className="py-20 bg-[#f8fafc] border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Photo / Illustration Card from Reference */}
+            {/* Left Photo */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-square bg-slate-100">
                 <Image
@@ -508,7 +508,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. "BOOK A FREE CONSULTATION TODAY" BANNER (Matching Reference) */}
+      {/* 9. "BOOK A FREE CONSULTATION TODAY" BANNER */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-[#0e2a47] text-white rounded-3xl p-8 sm:p-12 lg:p-16 overflow-hidden text-center shadow-xl">
@@ -521,7 +521,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full shadow-lg transition-transform hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white hover:bg-slate-100 text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full shadow-lg transition-transform hover:scale-105"
               >
                 <span>Schedule Now</span>
                 <ArrowRight className="w-4 h-4 ml-2" />

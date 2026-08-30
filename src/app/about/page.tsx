@@ -70,7 +70,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl">
+              <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl">
                 <p className="text-sm sm:text-base text-[#0e2a47] leading-relaxed font-medium">
                   <strong>Daniel Isibor & Co (Chartered Accountants)</strong> provides premier auditing, taxation, accounting, financial management, system optimization, due diligence, feasibility studies, financial forecast, enterprise risk management, fraud prevention and detection, and debt recovery services across <strong>Abuja and Nigeria</strong>.
                 </p>

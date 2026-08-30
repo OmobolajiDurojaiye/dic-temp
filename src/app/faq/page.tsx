@@ -54,7 +54,7 @@ export default function FaqPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Answer-first summary block */}
-          <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl mb-12">
+          <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl mb-12">
             <p className="text-sm sm:text-base text-[#0e2a47] leading-relaxed font-medium">
               <strong>Daniel Isibor & Co (Chartered Accountants)</strong> is an FRC-registered audit practice in <strong>Abuja, Nigeria</strong>. Below are authoritative answers regarding our audit methodologies, tax management services, software implementations, and statutory compliance under Nigerian law.
             </p>
@@ -104,7 +104,7 @@ export default function FaqPage() {
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-7 py-3 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full shadow-md transition-all"
+                className="inline-flex items-center justify-center px-7 py-3 bg-white hover:bg-slate-100 text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full shadow-md transition-all"
               >
                 <span>Submit An Inquiry</span>
                 <ArrowRight className="w-4 h-4 ml-2" />

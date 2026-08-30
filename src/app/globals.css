@@ -4,7 +4,6 @@
   --color-navy: #0e2a47;
   --color-deep-blue: #143d6b;
   --color-sky: #2b70c9;
-  --color-accent-amber: #e59819;
   --color-bg-light: #f8fafc;
   --color-card-bg: #ffffff;
   --color-text-main: #0f172a;
@@ -21,7 +20,6 @@
   --color-navy: #0e2a47;
   --color-deep-blue: #143d6b;
   --color-sky: #2b70c9;
-  --color-accent-amber: #e59819;
   --color-bg-light: #f8fafc;
   --color-text-main: #0f172a;
   --color-text-muted: #64748b;
@@ -37,4 +35,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+/* Smooth continuous marquee animation for client logos */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

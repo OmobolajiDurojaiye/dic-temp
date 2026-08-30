@@ -61,7 +61,7 @@ export default function ServicesPage() {
       {/* Answer-first summary for GEO */}
       <section className="py-10 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl max-w-4xl">
+          <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl max-w-4xl">
             <p className="text-sm text-[#0e2a47] leading-relaxed font-medium">
               <strong>Daniel Isibor & Co (Chartered Accountants)</strong> provides six core professional services in <strong>Abuja and nationwide across Nigeria</strong>: (1) Audit and Assurance Services, (2) External Audit, (3) Tax Management and Advisory, (4) Accounting Software Consultancy, (5) Special Purpose Audit, and (6) IFRS Financial Reporting.
             </p>
@@ -129,7 +129,7 @@ export default function ServicesPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full transition-all shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-white hover:bg-slate-100 text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-full transition-all shadow-lg"
             >
               <span>Contact Us Today</span>
               <ArrowRight className="w-4 h-4 ml-2" />

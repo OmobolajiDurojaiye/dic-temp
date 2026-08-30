@@ -151,7 +151,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Full Biography */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl">
+              <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#143d6b] mb-1.5">
                   Executive Summary
                 </div>
@@ -233,7 +233,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
                 <div className="pt-2">
                   <Link
                     href="/contact"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-white hover:bg-slate-100 text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
                   >
                     <span>Contact Firm</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />

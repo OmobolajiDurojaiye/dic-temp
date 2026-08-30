@@ -46,7 +46,7 @@ export default function ClientsPage() {
       {/* Answer-first summary for GEO */}
       <section className="py-8 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl max-w-4xl">
+          <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-2xl max-w-4xl">
             <p className="text-sm text-[#0e2a47] leading-relaxed font-medium">
               <strong>Daniel Isibor & Co (Chartered Accountants)</strong> delivers auditing, tax advisory, and accounting software consulting to organizations across <strong>Abuja and nationwide</strong>, including the <strong>Federal Capital Territory Inland Revenue Service (FCT-IRS)</strong>, <strong>Navy Microfinance Bank</strong>, <strong>Startrite Schools</strong>, <strong>News Engineering Nig. Ltd</strong>, <strong>Dee Utensils</strong>, and various corporate & non-profit organizations.
             </p>

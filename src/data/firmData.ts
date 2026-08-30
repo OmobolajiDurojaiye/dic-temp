@@ -416,43 +416,61 @@ export const CLIENTS_DATA: ClientItem[] = [
     name: "Federal Capital Territory Inland Revenue Service (FCT-IRS)",
     category: "Government Agency & Revenue Authority",
     description: "Statutory tax audit and revenue verification engagements.",
-    logoUrl: ""
+    logoUrl: "/images/Federal Capital Territory Inland Revenue Service (FCT-IRS).png"
   },
   {
     name: "Navy Microfinance Bank",
     category: "Financial Institution & Microfinance",
     description: "Financial advisory, risk management, and internal control reviews.",
-    logoUrl: ""
+    logoUrl: "/images/navy mfb.jpeg"
   },
   {
     name: "Startrite Schools",
     category: "Education & Institutional Management",
     description: "Financial reporting, payroll structuring, and software advisory.",
-    logoUrl: ""
+    logoUrl: "/images/Startrite Schools.jpeg"
   },
   {
     name: "News Engineering (Nig.) Ltd",
     category: "Civil & Electrical Engineering",
     description: "Internal audit oversight, tax advisory, and compliance management.",
-    logoUrl: ""
+    logoUrl: "/images/News Engineering (Nig.) Ltd.jpeg"
   },
   {
     name: "Dee Utensils",
     category: "Commercial & Retail Enterprise",
     description: "Accounting software setup, inventory accounting, and tax compliance.",
-    logoUrl: ""
+    logoUrl: "/images/Dee Utensils.jpg"
   },
   {
     name: "International Women's Federation of Commerce and Industry Nigeria LTD/GTE",
     category: "Non-Governmental Organization & Association",
     description: "Non-profit accounting, grant compliance, and assurance services.",
-    logoUrl: ""
+    logoUrl: "/images/International Women's Federation of Commerce and Industry Nigeria.jpg"
   },
   {
     name: "Leobob Engineering Services Ltd",
     category: "Engineering & Infrastructure",
     description: "Statutory external audit and corporate tax advisory.",
-    logoUrl: ""
+    logoUrl: "/images/Leobob Engineering Services Ltd.png"
+  },
+  {
+    name: "Alphamed Supply Ltd",
+    category: "Healthcare & Pharmaceutical Supply",
+    description: "Financial modeling and statutory tax compliance.",
+    logoUrl: "/images/Alphamed Supply Ltd.jpeg"
+  },
+  {
+    name: "Fountain Credit Services Ltd",
+    category: "Credit & Financial Services",
+    description: "Debt recovery frameworks and enterprise risk assessment.",
+    logoUrl: "/images/Fountain Credit Services Ltd.png"
+  },
+  {
+    name: "Hub360 Circuits Ltd",
+    category: "Technology & Electronics",
+    description: "Accounting software consultancy and inventory system setup.",
+    logoUrl: "/images/Hub360 Circuits Ltd.jpeg"
   },
   {
     name: "Kumcyn Global Consultancy Ltd",
@@ -461,39 +479,21 @@ export const CLIENTS_DATA: ClientItem[] = [
     logoUrl: ""
   },
   {
-    name: "Ara Contemporary Ltd",
+    name: "Ara Contemporary",
     category: "Creative & Commercial Enterprise",
-    description: "Financial reporting, accounting software implementation, and tax filings.",
-    logoUrl: ""
-  },
-  {
-    name: "Hub360 Circuits Ltd",
-    category: "Technology & Hardware Engineering",
-    description: "Financial modeling, tax advisory, and cloud accounting configuration.",
-    logoUrl: ""
-  },
-  {
-    name: "Fountain Credit Services Ltd",
-    category: "Financial Services & Credit Management",
-    description: "Statutory audit, risk management, and loan portfolio review.",
+    description: "Tax health check and ongoing bookkeeping advisory.",
     logoUrl: ""
   },
   {
     name: "Karvi Logistics Ltd",
     category: "Logistics & Supply Chain",
-    description: "External audit, tax health checks, and cash flow analysis.",
-    logoUrl: ""
-  },
-  {
-    name: "Alphamed Supply Ltd",
-    category: "Healthcare & Medical Supplies",
-    description: "Financial statement compilation and tax compliance.",
+    description: "System optimization and fleet accounting procedures.",
     logoUrl: ""
   },
   {
     name: "Kumcyn Farms",
-    category: "Agriculture & Agro-Allied",
-    description: "Cost accounting, asset verification, and accounting advisory.",
+    category: "Agriculture & Agribusiness",
+    description: "Feasibility studies and agricultural tax planning.",
     logoUrl: ""
   }
 ];
