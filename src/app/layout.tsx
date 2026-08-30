@@ -87,6 +87,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "2rMMZqn5XnhqmEDCut2yVHgnmvKX9VcCYUes5szhKHM",
+  },
 };
 
 const organizationSchema = {

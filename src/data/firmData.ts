@@ -406,13 +406,13 @@ export const CLIENTS_DATA: ClientItem[] = [
     name: "Springhall British School",
     category: "Education & Institutional Management",
     description: "Statutory external audit, accounting systems, and tax compliance.",
-    logoUrl: ""
+    logoUrl: "/images/springhall-british-school.png"
   },
   {
     name: "Abuja Schools Association",
     category: "Education & Institutional Association",
     description: "Advisory, regulatory compliance, and audit frameworks.",
-    logoUrl: ""
+    logoUrl: "/images/abuja-school-academy.jpeg"
   },
   {
     name: "News Engineering (Nig.) Ltd",
