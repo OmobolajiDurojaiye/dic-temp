@@ -1,22 +1,45 @@
 import React from "react";
+import Image from "next/image";
 
 interface LogoProps {
   className?: string;
   showText?: boolean;
   light?: boolean;
+  useImage?: boolean;
 }
 
-export default function Logo({ className = "h-10 w-10", showText = true, light = false }: LogoProps) {
-  // Use #1A2A4C (Navy) and #70C9E5 (Cyan)
+export default function Logo({
+  className = "h-10 w-10",
+  showText = true,
+  light = false,
+  useImage = false
+}: LogoProps) {
   const strokeColor = light ? "#70c9e5" : "#1a2a4c";
   const textColor = light ? "#ffffff" : "#1a2a4c";
-  const secondaryTextColor = "#70c9e5"; // Cyan for accent text
+  const secondaryTextColor = "#70c9e5";
+
+  if (useImage) {
+    return (
+      <div className="flex items-center gap-3 select-none">
+        <div className="relative h-11 w-auto aspect-[3/1]">
+          <Image
+            src="/images/DIC-LOGO.png"
+            alt="Daniel Isibor & Co Logo"
+            width={180}
+            height={50}
+            className="h-full w-auto object-contain"
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center gap-3 select-none">
       <div className={`relative ${className}`}>
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          {/* Hexagon path with solid color */}
+          {/* Hexagon path */}
           <polygon
             points="50,7 90,30 90,70 50,93 10,70 10,30"
             fill="none"
