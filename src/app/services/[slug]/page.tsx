@@ -2,14 +2,15 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Phone,
-  Building2
+  Building2,
+  CheckCircle2
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import CellTable, { CellRow } from "@/components/CellTable";
 import { FIRM_INFO, SERVICES_DATA } from "@/data/firmData";
 
 interface ServicePageProps {
@@ -58,12 +59,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     service.relatedSlugs.includes(s.slug)
   );
 
-  const atAGlanceItems = [
-    { label: "Governing Standard", value: "IFRS / CAMA", subvalue: "2020 Compliant" },
-    { label: "Accreditation", value: "FRC Registered", subvalue: "Nigeria" },
-    { label: "Geographic Scope", value: "Abuja & 36 States", subvalue: "Nationwide" }
-  ];
-
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -90,7 +85,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   };
 
   return (
-    <div className="flex flex-col bg-[#F4F8FB]">
+    <div className="flex flex-col bg-white">
       <JsonLd data={serviceSchema} />
       <Breadcrumbs
         items={[
@@ -99,17 +94,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         ]}
       />
 
-      {/* Hero Header - Deep Navy */}
-      <section className="bg-[#0B1E3D] text-white py-14 lg:py-20 border-b border-white/10">
+      {/* Hero Header */}
+      <section className="bg-[#f8fafc] py-14 lg:py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#3B9FE0]">
-              <span>Daniel Isibor & Co • Chartered Accountants</span>
-            </div>
-            <h1 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#143d6b]">
+              Daniel Isibor & Co • Chartered Accountants
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0e2a47]">
               {service.title}
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 font-sans leading-relaxed">
               {service.shortSummary}
             </p>
           </div>
@@ -117,32 +112,24 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* Main Content & Sidebar Grid */}
-      <section className="py-14 bg-[#F4F8FB] border-b border-[#5C7089]/20">
+      <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Main Article */}
             <article className="lg:col-span-8 space-y-8">
               {/* Answer-first statement */}
-              <div className="p-6 bg-white border-l-4 border-[#3B9FE0] flat-panel">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0] mb-1.5">
+              <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#143d6b] mb-1.5">
                   Service Summary
                 </div>
-                <p className="text-sm text-[#0B1E3D] leading-relaxed font-sans font-medium">
+                <p className="text-sm sm:text-base text-[#0e2a47] leading-relaxed font-medium">
                   {service.answerFirst}
                 </p>
               </div>
 
-              {/* At a Glance Cell Table */}
-              <div>
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#5C7089] block mb-2">
-                  At A Glance:
-                </span>
-                <CellTable items={atAGlanceItems} columns={3} />
-              </div>
-
               {/* Full copy from PDF */}
-              <div className="space-y-4 text-xs sm:text-sm text-[#5C7089] font-sans leading-relaxed">
-                <h2 className="font-sans text-xl font-bold text-[#0B1E3D] border-b border-[#5C7089]/20 pb-2">
+              <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+                <h2 className="text-xl font-bold text-[#0e2a47] border-b border-slate-200 pb-2">
                   Detailed Scope & Professional Approach
                 </h2>
                 {service.fullDescription.split("\n\n").map((para, idx) => (
@@ -152,15 +139,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Who this is for */}
               <div className="pt-4">
-                <h3 className="font-sans text-lg font-bold text-[#0B1E3D] mb-4 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-[#3B9FE0]" />
+                <h3 className="text-lg font-bold text-[#0e2a47] mb-4 flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-[#143d6b]" />
                   <span>Who This Service Is For</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.whoThisIsFor.map((item, idx) => (
-                    <div key={idx} className="p-4 bg-white flat-panel flex items-start gap-3">
-                      <span className="font-mono text-[#3B9FE0] font-bold text-xs mt-0.5">•</span>
-                      <span className="text-xs text-[#0B1E3D] font-sans font-medium leading-relaxed">{item}</span>
+                    <div key={idx} className="p-4 bg-[#f8fafc] border border-slate-100 rounded-2xl flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-[#143d6b] flex-shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-[#0e2a47] font-medium leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -168,13 +155,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Key Benefits */}
               <div className="pt-4">
-                <h3 className="font-sans text-lg font-bold text-[#0B1E3D] mb-4">
+                <h3 className="text-lg font-bold text-[#0e2a47] mb-4">
                   Key Strategic Benefits
                 </h3>
                 <ul className="space-y-3">
                   {service.keyBenefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#0B1E3D] font-sans">
-                      <span className="font-mono text-[#3B9FE0] font-bold text-xs mt-0.5">0{idx + 1}.</span>
+                    <li key={idx} className="flex items-start gap-3 text-sm text-[#0e2a47]">
+                      <CheckCircle2 className="w-4 h-4 text-[#143d6b] flex-shrink-0 mt-0.5" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -183,13 +170,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Deliverables */}
               <div className="pt-4">
-                <h3 className="font-sans text-lg font-bold text-[#0B1E3D] mb-4">
+                <h3 className="text-lg font-bold text-[#0e2a47] mb-4">
                   Key Deliverables & Documentation
                 </h3>
-                <div className="p-6 bg-white flat-panel space-y-3 font-sans">
+                <div className="p-6 bg-[#f8fafc] border border-slate-100 rounded-2xl space-y-3">
                   {service.deliverables.map((del, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#0B1E3D]">
-                      <span className="font-mono font-bold text-[#3B9FE0]">0{idx + 1}.</span>
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0e2a47]">
+                      <span className="font-bold text-[#143d6b]">0{idx + 1}.</span>
                       <span className="font-medium">{del}</span>
                     </div>
                   ))}
@@ -197,43 +184,43 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* Freshness Signal */}
-              <div className="pt-6 border-t border-[#5C7089]/20 flex items-center justify-between text-[11px] font-mono text-[#5C7089]">
-                <span>Entity: Daniel Isibor & Co (Chartered Accountants), Abuja, Nigeria</span>
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                <span>Daniel Isibor & Co (Chartered Accountants), Abuja, Nigeria</span>
                 <span>Last reviewed: August 2026</span>
               </div>
             </article>
 
             {/* Right Sidebar */}
             <aside className="lg:col-span-4 space-y-6">
-              {/* Consultation Card in Ink Blue */}
-              <div className="bg-[#13294B] text-white p-6 sm:p-8 rounded-[4px] shadow-sm border border-white/20 space-y-4">
-                <h3 className="font-sans text-base font-bold uppercase tracking-wider text-white">
+              {/* Consultation Card */}
+              <div className="bg-[#0e2a47] text-white p-7 rounded-3xl shadow-xl space-y-4">
+                <h3 className="text-lg font-bold text-white">
                   Request Proposal
                 </h3>
-                <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
                   Discuss your accounting or audit requirements directly with our licensed chartered accountants in Abuja.
                 </p>
-                <div className="pt-2 space-y-2">
+                <div className="pt-2 space-y-2.5">
                   <Link
                     href="/contact"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-[#3B9FE0] text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-[#0B1E3D] transition-all rounded-[4px]"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
                   >
                     <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Link>
                   <a
                     href={`tel:${FIRM_INFO.phoneE164}`}
-                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs font-bold tracking-wider transition-all rounded-[4px]"
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-xl transition-all"
                   >
-                    <Phone className="w-3.5 h-3.5 mr-2 text-[#3B9FE0]" />
+                    <Phone className="w-3.5 h-3.5 mr-2 text-[#3b9fe0]" />
                     <span>Call: {FIRM_INFO.phone}</span>
                   </a>
                 </div>
               </div>
 
               {/* Related Services */}
-              <div className="p-6 bg-white flat-panel">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0] mb-4">
+              <div className="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#143d6b] mb-4">
                   Related Services
                 </div>
                 <div className="space-y-3">
@@ -241,21 +228,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     <Link
                       key={rel.slug}
                       href={`/services/${rel.slug}`}
-                      className="block p-3 bg-[#F4F8FB] border border-[#5C7089]/15 hover:border-[#3B9FE0] transition-all rounded-[4px]"
+                      className="block p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors group"
                     >
-                      <h4 className="font-sans font-bold text-[#0B1E3D] text-xs hover:text-[#3B9FE0] mb-1 flex items-center justify-between">
+                      <h4 className="font-bold text-[#0e2a47] text-xs group-hover:text-[#143d6b] mb-1 flex items-center justify-between">
                         <span>{rel.title}</span>
-                        <ArrowRight className="w-3 h-3 text-[#5C7089]" />
+                        <ArrowRight className="w-3 h-3 text-slate-400 group-hover:text-[#143d6b]" />
                       </h4>
-                      <p className="text-[11px] font-sans text-[#5C7089] line-clamp-2">{rel.shortSummary}</p>
+                      <p className="text-[11px] text-slate-500 line-clamp-2">{rel.shortSummary}</p>
                     </Link>
                   ))}
                 </div>
               </div>
 
               {/* Statutory Registrations summary */}
-              <div className="p-6 bg-white flat-panel text-xs text-[#5C7089] space-y-2 font-mono text-[11px]">
-                <div className="font-bold text-[#0B1E3D] uppercase tracking-wider">
+              <div className="p-6 bg-slate-50 border border-slate-200 rounded-3xl text-xs text-slate-600 space-y-2">
+                <div className="font-bold text-[#0e2a47] uppercase tracking-wider">
                   Accreditations
                 </div>
                 <p>• Financial Reporting Council (FRC)</p>

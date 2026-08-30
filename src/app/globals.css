@@ -1,71 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --color-deep-navy: #0b1e3d;
-  --color-ink-blue: #13294b;
-  --color-sky: #3b9fe0;
-  --color-pale: #f4f8fb;
-  --color-slate: #5c7089;
-  --color-white: #ffffff;
-
-  --border-light: rgba(92, 112, 137, 0.25);
-  --border-dark: rgba(255, 255, 255, 0.15);
-  --border-accent: #3b9fe0;
-
-  --radius: 4px;
+  --color-navy: #0e2a47;
+  --color-deep-blue: #143d6b;
+  --color-sky: #2b70c9;
+  --color-accent-amber: #e59819;
+  --color-bg-light: #f8fafc;
+  --color-card-bg: #ffffff;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
 
   --font-sans: var(--font-public-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-ibm-mono), monospace;
-
-  --background: var(--color-pale);
-  --foreground: var(--color-deep-navy);
 }
 
 @theme {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 
-  --color-deep-navy: #0b1e3d;
-  --color-ink-blue: #13294b;
-  --color-sky: #3b9fe0;
-  --color-pale: #f4f8fb;
-  --color-slate: #5c7089;
-  --color-white: #ffffff;
+  --color-navy: #0e2a47;
+  --color-deep-blue: #143d6b;
+  --color-sky: #2b70c9;
+  --color-accent-amber: #e59819;
+  --color-bg-light: #f8fafc;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
 }
 
 body {
-  background-color: var(--color-pale);
-  color: var(--color-deep-navy);
+  background-color: #ffffff;
+  color: #0f172a;
   font-family: var(--font-sans);
-  border-radius: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.02em;
-}
-
-.font-mono-data {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums lining-nums;
-}
-
-/* Strict uniform radius */
-.radius-uniform {
-  border-radius: var(--radius);
-}
-
-/* Neo-brutalist flat bordered cards */
-.flat-panel {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius);
-}
-
-.flat-panel-dark {
-  background-color: var(--color-ink-blue);
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius);
-  color: #ffffff;
 }

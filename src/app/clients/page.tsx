@@ -2,7 +2,8 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowRight
+  ArrowRight,
+  CheckCircle2
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ClientLogo from "@/components/ClientLogo";
@@ -25,20 +26,17 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <div className="flex flex-col bg-[#F4F8FB]">
+    <div className="flex flex-col bg-white">
       <Breadcrumbs items={[{ name: "Clients", url: "/clients" }]} />
 
-      {/* Page Header - Deep Navy */}
-      <section className="bg-[#0B1E3D] text-white py-14 lg:py-20 border-b border-white/10">
+      {/* Page Header */}
+      <section className="bg-[#f8fafc] py-14 lg:py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#3B9FE0]/40 text-[#3B9FE0] text-[11px] font-mono font-bold uppercase tracking-wider rounded-[4px]">
-              <span>Proven Engagements</span>
-            </div>
-            <h1 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#0e2a47]">
               Our Clients & Industries Served
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 font-sans leading-relaxed">
               We have partnered with public sector agencies, financial institutions, leading schools, engineering enterprises, and fast-growing SMEs across Nigeria.
             </p>
           </div>
@@ -46,10 +44,10 @@ export default function ClientsPage() {
       </section>
 
       {/* Answer-first summary for GEO */}
-      <section className="py-8 bg-[#F4F8FB] border-b border-[#5C7089]/20">
+      <section className="py-8 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 bg-white border-l-4 border-[#3B9FE0] max-w-4xl flat-panel">
-            <p className="text-sm text-[#0B1E3D] leading-relaxed font-medium font-sans">
+          <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl max-w-4xl">
+            <p className="text-sm text-[#0e2a47] leading-relaxed font-medium">
               <strong>Daniel Isibor & Co (Chartered Accountants)</strong> delivers auditing, tax advisory, and accounting software consulting to organizations across <strong>Abuja and nationwide</strong>, including the <strong>Federal Capital Territory Inland Revenue Service (FCT-IRS)</strong>, <strong>Navy Microfinance Bank</strong>, <strong>Startrite Schools</strong>, <strong>News Engineering Nig. Ltd</strong>, <strong>Dee Utensils</strong>, and various corporate & non-profit organizations.
             </p>
           </div>
@@ -57,16 +55,13 @@ export default function ClientsPage() {
       </section>
 
       {/* Client Portfolio Grid */}
-      <section className="py-16 bg-[#F4F8FB] border-b border-[#5C7089]/20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#3B9FE0] block mb-1">
-              Client Engagements
-            </span>
-            <h2 className="font-sans text-2xl sm:text-3xl font-black text-[#0B1E3D] tracking-tight">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-[#0e2a47] tracking-tight">
               Featured Client Organizations
             </h2>
-            <p className="text-xs sm:text-sm text-[#5C7089] font-sans mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Our multidisciplinary team brings deep sector insight to every client relationship.
             </p>
           </div>
@@ -85,16 +80,13 @@ export default function ClientsPage() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-16 bg-white border-b border-[#5C7089]/20">
+      <section className="py-20 bg-[#f8fafc] border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#3B9FE0] block mb-1">
-              Sector Coverage
-            </span>
-            <h2 className="font-sans text-2xl sm:text-3xl font-black text-[#0B1E3D] tracking-tight">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0e2a47] tracking-tight">
               Key Sectors We Serve
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#5C7089] font-sans">
+            <p className="mt-2 text-sm text-slate-600">
               Tailored audit, tax, and advisory programs customized for your sector&apos;s regulatory framework.
             </p>
           </div>
@@ -103,20 +95,20 @@ export default function ClientsPage() {
             {INDUSTRIES_SERVED.map((industry, index) => (
               <div
                 key={index}
-                className="p-5 flat-panel flex items-start gap-3"
+                className="p-5 bg-white border border-slate-200 rounded-2xl flex items-start gap-3 shadow-sm"
               >
-                <span className="font-mono font-bold text-[#3B9FE0] text-xs mt-0.5">0{index + 1}.</span>
-                <span className="text-xs sm:text-sm font-semibold text-[#0B1E3D] font-sans leading-snug">
+                <CheckCircle2 className="w-5 h-5 text-[#143d6b] flex-shrink-0 mt-0.5" />
+                <span className="text-sm font-semibold text-[#0e2a47] leading-snug">
                   {industry}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-14 text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0B1E3D] text-white border border-[#3B9FE0] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#3B9FE0] transition-all shadow-md rounded-[4px]"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0e2a47] hover:bg-[#143d6b] text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow-lg transition-all"
             >
               <span>Discuss Your Organization&apos;s Requirements</span>
               <ArrowRight className="w-4 h-4 ml-2" />

@@ -31,10 +31,10 @@ export default function ClientLogo({
 
   return (
     <div
-      className={`flat-panel flex flex-col justify-between p-6 hover:border-[#3B9FE0] transition-colors ${className}`}
+      className={`bg-white border border-slate-100 rounded-2xl flex flex-col justify-between p-6 shadow-sm hover:shadow-md hover:border-slate-200 transition-all ${className}`}
     >
       {/* Logo Container */}
-      <div className="w-full h-20 flex items-center justify-center p-2 bg-[#F4F8FB] border border-[#5C7089]/15 rounded-[4px] overflow-hidden relative">
+      <div className="w-full h-16 flex items-center justify-center p-2 bg-slate-50 rounded-xl overflow-hidden relative">
         {hasValidImage ? (
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -47,11 +47,11 @@ export default function ClientLogo({
             />
           </div>
         ) : (
-          <div className="flex items-center gap-2 text-[#0B1E3D]">
-            <div className="h-8 w-8 flex-shrink-0 bg-white border border-[#5C7089]/30 text-[#0B1E3D] flex items-center justify-center font-mono font-bold text-xs rounded-[4px]">
-              {initials || <Building2 className="w-4 h-4 text-[#3B9FE0]" />}
+          <div className="flex items-center gap-2 text-[#0e2a47]">
+            <div className="h-8 w-8 flex-shrink-0 bg-white border border-slate-200 text-[#0e2a47] flex items-center justify-center font-bold text-xs rounded-lg">
+              {initials || <Building2 className="w-4 h-4 text-[#2b70c9]" />}
             </div>
-            <span className="font-sans font-bold text-xs tracking-tight text-[#0B1E3D] line-clamp-1">
+            <span className="font-bold text-xs tracking-tight text-[#0e2a47] line-clamp-1">
               {name.split(" ")[0]}
             </span>
           </div>
@@ -59,12 +59,12 @@ export default function ClientLogo({
       </div>
 
       {/* Client Details */}
-      <div className="mt-4 pt-3 border-t border-[#5C7089]/15 flex flex-col flex-1 justify-between">
-        <h4 className="font-sans font-bold text-[#0B1E3D] text-sm leading-snug line-clamp-2">
+      <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col flex-1 justify-between">
+        <h4 className="font-bold text-[#0e2a47] text-xs sm:text-sm leading-snug line-clamp-2">
           {name}
         </h4>
         {category && (
-          <p className="text-[10px] font-mono uppercase tracking-wider text-[#5C7089] mt-2">
+          <p className="text-[11px] text-slate-500 mt-1.5 line-clamp-1">
             {category}
           </p>
         )}

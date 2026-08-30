@@ -2,17 +2,17 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   GraduationCap,
   Briefcase,
   ShieldCheck,
   ArrowRight,
-  Linkedin
+  Linkedin,
+  CheckCircle2
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import TeamAvatar from "@/components/TeamAvatar";
-import { CellRow } from "@/components/CellTable";
 import { FIRM_INFO, TEAM_DATA } from "@/data/firmData";
 
 interface TeamMemberPageProps {
@@ -60,6 +60,16 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
 
   const otherTeam = TEAM_DATA.filter((m) => m.slug !== member.slug);
 
+  const teamPhotos: Record<string, string> = {
+    "daniel-isibor": "/images/Mr Daniel.jpeg",
+    "rukayat-hassan-daniel": "/images/stock/woman-professional.jpg",
+    "chijioke-agbedo": "/images/stock/man-suit.jpg",
+    "chinyere-okafor": "/images/stock/team-discussion.jpg",
+    "ibrahim-adamu": "/images/stock/team-collaboration.jpg"
+  };
+
+  const photo = member.photoUrl && member.photoUrl.trim() !== "" ? member.photoUrl : (teamPhotos[member.slug] || "/images/stock/man-suit.jpg");
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -83,7 +93,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
   };
 
   return (
-    <div className="flex flex-col bg-[#F4F8FB]">
+    <div className="flex flex-col bg-white">
       <JsonLd data={personSchema} />
       <Breadcrumbs
         items={[
@@ -92,28 +102,29 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
         ]}
       />
 
-      {/* Header Profile Banner - Deep Navy */}
-      <section className="bg-[#0B1E3D] text-white py-14 lg:py-20 border-b border-white/10">
+      {/* Header Profile Banner */}
+      <section className="bg-[#f8fafc] py-14 lg:py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-            <TeamAvatar
-              name={member.name}
-              photoUrl={member.photoUrl}
-              size="xl"
-            />
+            <div className="relative w-36 h-36 rounded-3xl overflow-hidden shadow-lg border-4 border-white flex-shrink-0 bg-slate-100">
+              <Image
+                src={photo}
+                alt={`${member.name} - Chartered Accountant`}
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
 
             {/* Main Title & Role */}
-            <div className="space-y-3 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#3B9FE0]/40 text-[#3B9FE0] text-[11px] font-mono font-bold uppercase tracking-wider rounded-[4px]">
-                <span>Executive Profile</span>
-              </div>
-              <h1 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
+            <div className="space-y-2 text-center md:text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0e2a47]">
                 {member.name}
               </h1>
-              <p className="text-base sm:text-lg text-[#3B9FE0] font-semibold font-sans">
+              <p className="text-base sm:text-lg text-[#143d6b] font-semibold">
                 {member.role}
               </p>
-              <div className="font-mono text-xs text-slate-300">
+              <div className="text-sm font-mono text-slate-500">
                 {member.credentials}
               </div>
               {member.linkedin && (
@@ -122,7 +133,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 hover:bg-[#3B9FE0] hover:text-white border border-white/20 font-mono text-xs font-semibold rounded-[4px] transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#0e2a47] hover:bg-[#143d6b] text-white text-xs font-semibold rounded-full transition-colors shadow-sm"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
                     <span>Connect on LinkedIn</span>
@@ -135,22 +146,22 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
       </section>
 
       {/* Main Bio & Qualifications Section */}
-      <section className="py-14 bg-[#F4F8FB] border-b border-[#5C7089]/20">
+      <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Full Biography */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="p-6 bg-white border-l-4 border-[#3B9FE0] flat-panel">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0] mb-1.5">
+              <div className="p-6 bg-slate-50 border-l-4 border-[#143d6b] rounded-r-2xl">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#143d6b] mb-1.5">
                   Executive Summary
                 </div>
-                <p className="text-sm text-[#0B1E3D] leading-relaxed font-sans font-medium">
+                <p className="text-sm sm:text-base text-[#0e2a47] leading-relaxed font-medium">
                   {member.shortBio}
                 </p>
               </div>
 
-              <div className="space-y-4 text-xs sm:text-sm text-[#5C7089] font-sans leading-relaxed">
-                <h2 className="font-sans text-xl font-bold text-[#0B1E3D] border-b border-[#5C7089]/20 pb-2">
+              <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+                <h2 className="text-xl font-bold text-[#0e2a47] border-b border-slate-200 pb-2">
                   Professional Background & Practice Experience
                 </h2>
                 {member.fullBio.map((paragraph, index) => (
@@ -160,15 +171,15 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
 
               {/* Core Specialties */}
               <div className="pt-4">
-                <h3 className="font-sans text-base font-bold text-[#0B1E3D] mb-3 flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-[#3B9FE0]" />
+                <h3 className="text-base font-bold text-[#0e2a47] mb-3 flex items-center gap-2">
+                  <Briefcase className="w-4 h-4 text-[#143d6b]" />
                   <span>Practice Areas & Core Specialties</span>
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {member.specialties.map((spec, sIdx) => (
                     <span
                       key={sIdx}
-                      className="text-xs font-mono px-3 py-1.5 bg-white border border-[#5C7089]/25 text-[#0B1E3D] font-medium rounded-[4px]"
+                      className="text-xs font-medium px-3 py-1.5 bg-[#f8fafc] border border-slate-200 text-[#0e2a47] rounded-xl"
                     >
                       {spec}
                     </span>
@@ -180,15 +191,15 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
             {/* Right Column: Qualifications & Memberships */}
             <aside className="lg:col-span-4 space-y-6">
               {/* Education */}
-              <div className="p-6 bg-white flat-panel space-y-3">
-                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0] flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-[#3B9FE0]" />
+              <div className="p-6 bg-[#f8fafc] border border-slate-200 rounded-3xl space-y-3 shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#143d6b] flex items-center gap-2">
+                  <GraduationCap className="w-4 h-4 text-[#143d6b]" />
                   <span>Academic Qualifications</span>
                 </h3>
-                <ul className="space-y-2.5 text-xs text-[#5C7089] font-sans">
+                <ul className="space-y-2.5 text-xs text-slate-600">
                   {member.education.map((edu, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="font-mono text-[#3B9FE0] font-bold">•</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#143d6b] flex-shrink-0 mt-0.5" />
                       <span>{edu}</span>
                     </li>
                   ))}
@@ -196,33 +207,33 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
               </div>
 
               {/* Memberships */}
-              <div className="p-6 bg-white flat-panel space-y-3">
-                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0] flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#3B9FE0]" />
+              <div className="p-6 bg-[#f8fafc] border border-slate-200 rounded-3xl space-y-3 shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#143d6b] flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#143d6b]" />
                   <span>Professional Accreditations</span>
                 </h3>
-                <ul className="space-y-2.5 text-xs text-[#5C7089] font-sans">
+                <ul className="space-y-2.5 text-xs text-slate-600">
                   {member.memberships.map((mem, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="font-mono text-[#3B9FE0] font-bold">•</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#143d6b] flex-shrink-0 mt-0.5" />
                       <span>{mem}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Consultation Card in Ink Blue */}
-              <div className="bg-[#13294B] text-white p-6 rounded-[4px] space-y-3 border border-white/20">
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#3B9FE0]">
+              {/* Consultation Card */}
+              <div className="bg-[#0e2a47] text-white p-7 rounded-3xl space-y-3 shadow-xl">
+                <h4 className="text-base font-bold text-white">
                   Schedule Consultation
                 </h4>
                 <p className="text-xs text-slate-300 font-sans leading-relaxed">
                   Request an engagement or advisory session with {member.name}.
                 </p>
-                <div className="pt-1">
+                <div className="pt-2">
                   <Link
                     href="/contact"
-                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[#3B9FE0] text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-[#0B1E3D] transition-all rounded-[4px]"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-[#e59819] hover:bg-[#d48810] text-[#0e2a47] font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
                   >
                     <span>Contact Firm</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
@@ -231,8 +242,8 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
               </div>
 
               {/* Other Key Drivers */}
-              <div className="p-6 bg-white flat-panel">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#5C7089] mb-3">
+              <div className="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
                   Other Key Drivers
                 </div>
                 <div className="space-y-2.5">
@@ -240,10 +251,10 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
                     <Link
                       key={other.slug}
                       href={`/team/${other.slug}`}
-                      className="block p-2.5 bg-[#F4F8FB] border border-[#5C7089]/15 hover:border-[#3B9FE0] rounded-[4px] transition-colors"
+                      className="block p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors"
                     >
-                      <div className="font-sans text-xs font-bold text-[#0B1E3D]">{other.name}</div>
-                      <div className="text-[10px] font-mono text-[#5C7089]">{other.role}</div>
+                      <div className="font-bold text-[#0e2a47] text-xs">{other.name}</div>
+                      <div className="text-[11px] text-slate-500">{other.role}</div>
                     </Link>
                   ))}
                 </div>
