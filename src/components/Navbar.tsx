@@ -60,7 +60,7 @@ export default function Navbar() {
           {/* Real DIC Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <Logo className="h-16 sm:h-20 w-auto" />
+              <Logo className="h-12 sm:h-14 w-auto" />
             </Link>
           </div>
 
