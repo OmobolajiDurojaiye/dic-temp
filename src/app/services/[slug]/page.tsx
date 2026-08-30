@@ -9,17 +9,15 @@ import {
   Briefcase,
   Info,
   FileText,
-  CheckCircle2,
   ArrowRight,
   Phone,
-  Mail,
-  Calendar,
-  Building2,
-  Award
+  Building2
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { FIRM_INFO, SERVICES_DATA, ServiceItem } from "@/data/firmData";
+import TickMark from "@/components/TickMark";
+import LedgerGraphic from "@/components/LedgerGraphic";
+import { FIRM_INFO, SERVICES_DATA } from "@/data/firmData";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -67,25 +65,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     service.relatedSlugs.includes(s.slug)
   );
 
-  const getServiceIcon = (sSlug: string) => {
-    switch (sSlug) {
-      case "audit-and-assurance":
-        return <ShieldCheck className="w-8 h-8 text-brand-navy" />;
-      case "external-audit":
-        return <FileSearch className="w-8 h-8 text-brand-navy" />;
-      case "tax-management-and-advisory":
-        return <Calculator className="w-8 h-8 text-brand-navy" />;
-      case "accounting-software-consultancy":
-        return <Briefcase className="w-8 h-8 text-brand-navy" />;
-      case "special-purpose-audit":
-        return <Info className="w-8 h-8 text-brand-navy" />;
-      case "financial-reporting":
-        return <FileText className="w-8 h-8 text-brand-navy" />;
-      default:
-        return <ShieldCheck className="w-8 h-8 text-brand-navy" />;
-    }
-  };
-
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -112,7 +91,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#F6F2E9]">
       <JsonLd data={serviceSchema} />
       <Breadcrumbs
         items={[
@@ -121,18 +100,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         ]}
       />
 
-      {/* Hero Header */}
-      <section className="bg-brand-navy text-white py-14 lg:py-20 border-b border-slate-800">
+      {/* Hero Header - Ink Navy */}
+      <section className="bg-[#101F38] text-white py-14 lg:py-20 border-b border-[#B08D3E]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan">
-              <Award className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#B08D3E]">
+              <TickMark variant="rust" size="sm" />
               <span>Daniel Isibor & Co • Chartered Accountants</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
               {service.title}
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
               {service.shortSummary}
             </p>
           </div>
@@ -140,24 +119,32 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* Main Content & Sidebar Grid */}
-      <section className="py-14 bg-white border-b border-slate-200">
+      <section className="py-14 bg-[#F6F2E9] border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Main Article */}
             <article className="lg:col-span-8 space-y-8">
               {/* Answer-first statement for AI & GEO */}
-              <div className="p-6 bg-slate-50 border-l-4 border-brand-navy shadow-sm">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">
-                  Service Overview & Direct Answer
-                </h2>
-                <p className="text-sm text-slate-800 leading-relaxed font-medium">
+              <div className="p-6 bg-white border-l-4 border-[#B08D3E] brass-corner-card">
+                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#B08D3E] mb-1.5">
+                  Direct Overview & Practice Summary
+                </div>
+                <p className="text-sm text-[#101F38] leading-relaxed font-sans font-medium">
                   {service.answerFirst}
                 </p>
               </div>
 
-              {/* Full copy extracted from PDF */}
-              <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+              {/* Service Ledger Graphic Feature */}
+              <div className="space-y-2">
+                <div className="text-[10px] font-mono uppercase tracking-widest text-[#5B6B7F]">
+                  Workpaper / Ledger Excerpt:
+                </div>
+                <LedgerGraphic slug={service.slug} />
+              </div>
+
+              {/* Full copy from PDF */}
+              <div className="space-y-4 text-xs sm:text-sm text-[#5B6B7F] font-sans leading-relaxed">
+                <h2 className="font-serif text-xl font-bold text-[#101F38] border-b border-[#5B6B7F]/20 pb-2">
                   Detailed Scope & Professional Approach
                 </h2>
                 {service.fullDescription.split("\n\n").map((para, idx) => (
@@ -167,15 +154,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Who this is for */}
               <div className="pt-4">
-                <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-brand-navy" />
+                <h3 className="font-serif text-lg font-bold text-[#101F38] mb-4 flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-[#B08D3E]" />
                   <span>Who This Service Is For</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.whoThisIsFor.map((item, idx) => (
-                    <div key={idx} className="p-4 bg-slate-50 border border-slate-200 flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-brand-navy flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-slate-700 font-medium leading-relaxed">{item}</span>
+                    <div key={idx} className="p-4 bg-white brass-corner-card flex items-start gap-3">
+                      <TickMark variant="rust" size="sm" className="mt-0.5" />
+                      <span className="text-xs text-[#101F38] font-sans font-medium leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -183,15 +170,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Key Benefits */}
               <div className="pt-4">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+                <h3 className="font-serif text-lg font-bold text-[#101F38] mb-4">
                   Key Strategic Benefits
                 </h3>
                 <ul className="space-y-3">
                   {service.keyBenefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
-                      <span className="w-5 h-5 rounded-full bg-brand-navy/10 text-brand-navy font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                        ✓
-                      </span>
+                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#101F38] font-sans">
+                      <TickMark variant="rust" size="sm" className="mt-0.5" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -200,13 +185,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Deliverables */}
               <div className="pt-4">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+                <h3 className="font-serif text-lg font-bold text-[#101F38] mb-4">
                   Key Deliverables & Documentation
                 </h3>
-                <div className="p-6 bg-slate-50 border border-slate-200 space-y-3">
+                <div className="p-6 bg-white brass-corner-card space-y-3 font-sans">
                   {service.deliverables.map((del, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-800">
-                      <span className="font-mono font-bold text-brand-navy">0{idx + 1}.</span>
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#101F38]">
+                      <span className="font-mono font-bold text-[#B08D3E]">0{idx + 1}.</span>
                       <span className="font-medium">{del}</span>
                     </div>
                   ))}
@@ -214,7 +199,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* Freshness Signal */}
-              <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="pt-6 border-t border-[#5B6B7F]/20 flex items-center justify-between text-[11px] font-mono text-[#5B6B7F]">
                 <span>Entity: Daniel Isibor & Co (Chartered Accountants), Abuja, Nigeria</span>
                 <span>Last reviewed: August 2026</span>
               </div>
@@ -222,62 +207,74 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Right Sidebar */}
             <aside className="lg:col-span-4 space-y-6">
-              {/* Consultation Card */}
-              <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-none shadow-lg border border-slate-800 space-y-4">
-                <h3 className="text-base font-bold uppercase tracking-wider text-white">
-                  Request Service Proposal
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+              {/* Consultation Card in Ink Navy */}
+              <div className="bg-[#101F38] text-white p-6 sm:p-8 rounded-none shadow-xl border border-[#B08D3E]/40 brass-corner-card !bg-[#101F38] space-y-4">
+                <div className="flex items-center gap-2">
+                  <TickMark variant="brass" size="sm" />
+                  <h3 className="font-serif text-base font-bold uppercase tracking-wider text-white">
+                    Request Proposal
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-300 font-sans leading-relaxed">
                   Discuss your accounting or audit requirements directly with our licensed chartered accountants in Abuja.
                 </p>
                 <div className="pt-2 space-y-2">
                   <Link
                     href="/contact"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-white transition-all shadow-md"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-[#B08D3E] text-[#101F38] font-mono text-xs font-bold uppercase tracking-wider hover:bg-white transition-all shadow-md"
                   >
                     <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Link>
                   <a
                     href={`tel:${FIRM_INFO.phoneE164}`}
-                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wider transition-all"
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-[#B08D3E]/30 text-white font-mono text-xs font-bold tracking-wider transition-all"
                   >
-                    <Phone className="w-3.5 h-3.5 mr-2 text-brand-cyan" />
+                    <Phone className="w-3.5 h-3.5 mr-2 text-[#B08D3E]" />
                     <span>Call: {FIRM_INFO.phone}</span>
                   </a>
                 </div>
               </div>
 
               {/* Related Services */}
-              <div className="p-6 bg-slate-50 border border-slate-200">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-4">
+              <div className="p-6 bg-white brass-corner-card">
+                <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#B08D3E] mb-4">
                   Related Services
-                </h4>
+                </div>
                 <div className="space-y-3">
                   {relatedServices.map((rel) => (
                     <Link
                       key={rel.slug}
                       href={`/services/${rel.slug}`}
-                      className="block p-3 bg-white border border-slate-200 hover:border-brand-navy transition-all group"
+                      className="block p-3 bg-[#F6F2E9] border border-[#5B6B7F]/15 hover:border-[#B08D3E] transition-all group"
                     >
-                      <h5 className="font-bold text-slate-900 text-xs group-hover:text-brand-navy mb-1 flex items-center justify-between">
+                      <h4 className="font-serif font-bold text-[#101F38] text-xs group-hover:text-[#B08D3E] mb-1 flex items-center justify-between">
                         <span>{rel.title}</span>
-                        <ArrowRight className="w-3 h-3 text-slate-400 group-hover:text-brand-navy transition-colors" />
-                      </h5>
-                      <p className="text-[11px] text-slate-500 line-clamp-2">{rel.shortSummary}</p>
+                        <ArrowRight className="w-3 h-3 text-[#5B6B7F] group-hover:text-[#B08D3E] transition-colors" />
+                      </h4>
+                      <p className="text-[11px] font-sans text-[#5B6B7F] line-clamp-2">{rel.shortSummary}</p>
                     </Link>
                   ))}
                 </div>
               </div>
 
               {/* Statutory Registrations summary */}
-              <div className="p-6 bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
-                <div className="font-bold text-slate-900 uppercase tracking-wider">
-                  Statutory Registrations
+              <div className="p-6 bg-white brass-corner-card text-xs text-[#5B6B7F] space-y-2 font-mono text-[11px]">
+                <div className="font-bold text-[#101F38] uppercase tracking-wider">
+                  Accreditations
                 </div>
-                <p>• Financial Reporting Council of Nigeria (FRC)</p>
-                <p>• Office of the Auditor General of the Federation</p>
-                <p>• ICAN & CITN Certified Partners</p>
+                <p className="flex items-center gap-1.5">
+                  <TickMark variant="rust" size="sm" />
+                  <span>Financial Reporting Council (FRC)</span>
+                </p>
+                <p className="flex items-center gap-1.5">
+                  <TickMark variant="rust" size="sm" />
+                  <span>Auditor General of Federation</span>
+                </p>
+                <p className="flex items-center gap-1.5">
+                  <TickMark variant="rust" size="sm" />
+                  <span>ICAN & CITN Certified</span>
+                </p>
               </div>
             </aside>
           </div>

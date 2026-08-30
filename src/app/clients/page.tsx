@@ -2,14 +2,11 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Building2,
-  Award,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2
+  ArrowRight
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ClientLogo from "@/components/ClientLogo";
+import TickMark from "@/components/TickMark";
 import { FIRM_INFO, CLIENTS_DATA, INDUSTRIES_SERVED } from "@/data/firmData";
 
 export const metadata: Metadata = {
@@ -29,21 +26,21 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#F6F2E9]">
       <Breadcrumbs items={[{ name: "Clients", url: "/clients" }]} />
 
-      {/* Page Header */}
-      <section className="bg-brand-navy text-white py-14 lg:py-20 border-b border-slate-800">
+      {/* Page Header - Ink Navy */}
+      <section className="bg-[#101F38] text-white py-14 lg:py-20 border-b border-[#B08D3E]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-brand-cyan text-xs font-bold uppercase tracking-wider">
-              <Award className="w-3.5 h-3.5" />
-              <span>Proven Track Record</span>
-            </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#B08D3E]/40 text-[#B08D3E] text-[11px] font-mono font-bold uppercase tracking-wider">
+              <TickMark variant="rust" size="sm" />
+              <span>Proven Engagements</span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
               Our Clients & Industries Served
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
               We have partnered with public sector agencies, financial institutions, leading schools, engineering enterprises, and fast-growing SMEs across Nigeria.
             </p>
           </div>
@@ -51,10 +48,10 @@ export default function ClientsPage() {
       </section>
 
       {/* Answer-first summary for GEO */}
-      <section className="py-8 bg-white border-b border-slate-200">
+      <section className="py-8 bg-[#F6F2E9] border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 bg-slate-50 border-l-4 border-brand-navy max-w-4xl">
-            <p className="text-sm text-slate-800 leading-relaxed font-medium">
+          <div className="p-6 bg-white border-l-4 border-[#B08D3E] max-w-4xl brass-corner-card">
+            <p className="text-sm text-[#101F38] leading-relaxed font-medium font-sans">
               <strong>Daniel Isibor & Co (Chartered Accountants)</strong> delivers auditing, tax advisory, and accounting software consulting to organizations across <strong>Abuja and nationwide</strong>, including the <strong>Federal Capital Territory Inland Revenue Service (FCT-IRS)</strong>, <strong>Navy Microfinance Bank</strong>, <strong>Startrite Schools</strong>, <strong>News Engineering Nig. Ltd</strong>, <strong>Dee Utensils</strong>, and various corporate & non-profit organizations.
             </p>
           </div>
@@ -62,21 +59,22 @@ export default function ClientsPage() {
       </section>
 
       {/* Client Portfolio Grid */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section className="py-16 bg-[#F6F2E9] border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-brand-navy mb-1">
-              Engagements & Client Relationships
-            </h2>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#B08D3E] mb-1">
+              <TickMark variant="brass" size="sm" />
+              <span>Client Engagements</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#101F38] tracking-tight">
               Featured Client Organizations
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+            </h2>
+            <p className="text-xs sm:text-sm text-[#5B6B7F] font-sans mt-1">
               Our multidisciplinary team brings deep sector insight to every client relationship.
             </p>
           </div>
 
-          {/* Adaptive Client Logo Grid */}
+          {/* Adaptive Client Logo Grid with Brass Corner Marks */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {CLIENTS_DATA.map((client) => (
               <ClientLogo
@@ -91,14 +89,17 @@ export default function ClientsPage() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section className="py-16 bg-white border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-navy">Industry Practice</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
+            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#B08D3E] mb-1">
+              <TickMark variant="brass" size="sm" />
+              <span>Sector Coverage</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#101F38] tracking-tight">
               Key Sectors We Serve
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-slate-600">
+            <p className="mt-2 text-xs sm:text-sm text-[#5B6B7F] font-sans">
               Tailored audit, tax, and advisory programs customized for your sector&apos;s regulatory framework.
             </p>
           </div>
@@ -107,10 +108,10 @@ export default function ClientsPage() {
             {INDUSTRIES_SERVED.map((industry, index) => (
               <div
                 key={index}
-                className="p-5 bg-slate-50 border border-slate-200 flex items-start gap-3"
+                className="p-5 brass-corner-card flex items-start gap-3"
               >
-                <CheckCircle2 className="w-5 h-5 text-brand-navy flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                <TickMark variant="rust" size="md" className="mt-0.5" />
+                <span className="text-xs sm:text-sm font-semibold text-[#101F38] font-sans leading-snug">
                   {industry}
                 </span>
               </div>
@@ -120,9 +121,9 @@ export default function ClientsPage() {
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-navy text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-cyan hover:text-brand-navy transition-all"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#101F38] text-white border border-[#B08D3E] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#B08D3E] hover:text-[#101F38] transition-all shadow-md"
             >
-              <span>Discuss Your Organization&apos;s Needs</span>
+              <span>Discuss Your Organization&apos;s Requirements</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>

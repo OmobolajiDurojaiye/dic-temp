@@ -14,9 +14,10 @@ export default function Logo({
   light = false,
   useImage = false
 }: LogoProps) {
-  const strokeColor = light ? "#70c9e5" : "#1a2a4c";
-  const textColor = light ? "#ffffff" : "#1a2a4c";
-  const secondaryTextColor = "#70c9e5";
+  // Use Ink Navy (#101F38) and Brass (#B08D3E)
+  const strokeColor = light ? "#B08D3E" : "#101F38";
+  const textColor = light ? "#FFFFFF" : "#101F38";
+  const secondaryTextColor = light ? "#B08D3E" : "#B08D3E";
 
   if (useImage) {
     return (
@@ -39,23 +40,23 @@ export default function Logo({
     <div className="flex items-center gap-3 select-none">
       <div className={`relative ${className}`}>
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          {/* Hexagon path */}
+          {/* Hexagon seal outline */}
           <polygon
             points="50,7 90,30 90,70 50,93 10,70 10,30"
             fill="none"
             stroke={strokeColor}
-            strokeWidth="9"
+            strokeWidth="8"
             strokeLinejoin="round"
           />
-          {/* Inner DIC Text */}
+          {/* Inner DIC Monogram Text in Plex Mono feel */}
           <text
             x="50"
-            y="58"
+            y="59"
             textAnchor="middle"
             fill={strokeColor}
-            fontWeight="900"
+            fontWeight="800"
             fontSize="30"
-            fontFamily="var(--font-lato), sans-serif"
+            fontFamily="var(--font-mono), monospace"
             letterSpacing="-0.5"
           >
             DIC
@@ -64,10 +65,10 @@ export default function Logo({
       </div>
       {showText && (
         <div className="flex flex-col leading-none">
-          <span className="font-extrabold text-lg tracking-wide" style={{ color: textColor }}>
+          <span className="font-serif font-extrabold text-lg tracking-tight" style={{ color: textColor }}>
             DANIEL ISIBOR & CO
           </span>
-          <span className="text-[9px] font-bold tracking-[0.2em] mt-0.5" style={{ color: secondaryTextColor }}>
+          <span className="text-[9px] font-mono font-bold tracking-[0.22em] mt-0.5" style={{ color: secondaryTextColor }}>
             CHARTERED ACCOUNTANTS
           </span>
         </div>

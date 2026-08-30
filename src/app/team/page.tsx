@@ -1,16 +1,14 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Award,
-  GraduationCap,
-  Briefcase,
   ArrowRight,
-  Shield,
   Linkedin
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TickMark from "@/components/TickMark";
+import TeamAvatar from "@/components/TeamAvatar";
 import { FIRM_INFO, TEAM_DATA } from "@/data/firmData";
 
 export const metadata: Metadata = {
@@ -30,21 +28,21 @@ export const metadata: Metadata = {
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#F6F2E9]">
       <Breadcrumbs items={[{ name: "Our Team", url: "/team" }]} />
 
-      {/* Page Header */}
-      <section className="bg-brand-navy text-white py-14 lg:py-20 border-b border-slate-800">
+      {/* Page Header - Ink Navy */}
+      <section className="bg-[#101F38] text-white py-14 lg:py-20 border-b border-[#B08D3E]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-brand-cyan text-xs font-bold uppercase tracking-wider">
-              <Award className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#B08D3E]/40 text-[#B08D3E] text-[11px] font-mono font-bold uppercase tracking-wider">
+              <TickMark variant="rust" size="sm" />
               <span>Key Drivers & Leadership</span>
-            </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              Meet Our Executive Team
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+              Meet Our Executive Leadership
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
               Our key drivers possess over fifteen years of accounting, audit, tax, and risk management experience. This depth of expertise gives our firm an edge in delivering optimal results for clients.
             </p>
           </div>
@@ -52,10 +50,10 @@ export default function TeamPage() {
       </section>
 
       {/* Answer-first summary for GEO */}
-      <section className="py-8 bg-white border-b border-slate-200">
+      <section className="py-8 bg-[#F6F2E9] border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 bg-slate-50 border-l-4 border-brand-navy max-w-4xl">
-            <p className="text-sm text-slate-800 leading-relaxed font-medium">
+          <div className="p-6 bg-white border-l-4 border-[#B08D3E] max-w-4xl brass-corner-card">
+            <p className="text-sm text-[#101F38] leading-relaxed font-medium font-sans">
               The leadership of <strong>Daniel Isibor & Co (Chartered Accountants)</strong> in <strong>Abuja, Nigeria</strong> is headed by Principal Partner <strong>Daniel Isibor (ACA, ACTI, MCIB)</strong>, Senior Partner <strong>Rukayat Hassan-Daniel (ACA, ACTI)</strong>, and Tax Partner <strong>Chijioke Agbedo (ACA, CISA, ACFE)</strong>, supported by senior compliance and audit managers.
             </p>
           </div>
@@ -63,54 +61,51 @@ export default function TeamPage() {
       </section>
 
       {/* Team Members Grid */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section className="py-16 bg-white border-b border-[#5B6B7F]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {TEAM_DATA.map((member) => (
+            {TEAM_DATA.map((member, index) => (
               <div
                 key={member.slug}
-                className="bg-white border border-slate-200 p-8 flex flex-col justify-between hover:shadow-xl hover:border-brand-navy transition-all group"
+                className="brass-corner-card p-8 flex flex-col justify-between hover:border-[#B08D3E] transition-all group"
               >
                 <div>
-                  {/* Photo or Initials Avatar */}
+                  {/* Photo or Interim Brass Monogram Badge */}
                   <div className="flex items-center gap-4 mb-6">
-                    {member.photoUrl ? (
-                      <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-brand-navy/20 flex-shrink-0 bg-slate-100">
-                        <Image
-                          src={member.photoUrl}
-                          alt={member.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-20 h-20 rounded-full bg-brand-navy/10 text-brand-navy font-black text-xl flex items-center justify-center flex-shrink-0 border border-slate-200">
-                        {member.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
-                      </div>
-                    )}
+                    <TeamAvatar
+                      name={member.name}
+                      photoUrl={member.photoUrl}
+                      size="lg"
+                    />
                     <div>
-                      <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-brand-navy transition-colors">
+                      <span className="text-[10px] font-mono text-[#5B6B7F] uppercase tracking-widest block">
+                        PARTNER 0{index + 1}
+                      </span>
+                      <h3 className="font-serif font-bold text-[#101F38] text-base leading-snug group-hover:text-[#B08D3E] transition-colors mt-0.5">
                         {member.name}
                       </h3>
-                      <p className="text-xs font-semibold text-brand-navy mt-0.5">{member.role}</p>
-                      <p className="text-[10px] text-slate-500 font-mono mt-0.5">{member.credentials}</p>
+                      <p className="text-xs font-semibold text-[#B08D3E] mt-0.5">{member.role}</p>
+                      <div className="flex items-center gap-1.5 mt-1 font-mono text-[10px] text-[#5B6B7F]">
+                        <TickMark variant="rust" size="sm" />
+                        <span>{member.credentials}</span>
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                  <p className="text-xs text-[#5B6B7F] font-sans leading-relaxed mb-6">
                     {member.shortBio}
                   </p>
 
-                  {/* Specialties Pills */}
+                  {/* Specialties */}
                   <div className="mb-6">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                    <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#5B6B7F] mb-2">
                       Core Specialties:
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {member.specialties.slice(0, 3).map((spec, sIdx) => (
                         <span
                           key={sIdx}
-                          className="text-[11px] px-2 py-0.5 bg-slate-100 text-slate-700 font-medium"
+                          className="text-[11px] font-mono px-2 py-0.5 bg-[#F6F2E9] text-[#101F38] border border-[#5B6B7F]/15 font-medium"
                         >
                           {spec}
                         </span>
@@ -119,10 +114,10 @@ export default function TeamPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-4 border-t border-[#5B6B7F]/15 flex items-center justify-between">
                   <Link
                     href={`/team/${member.slug}`}
-                    className="text-xs font-bold text-brand-navy group-hover:text-brand-navy inline-flex items-center gap-1 uppercase tracking-wider"
+                    className="font-mono text-xs font-bold text-[#101F38] group-hover:text-[#B08D3E] inline-flex items-center gap-1 uppercase tracking-wider"
                   >
                     <span>Full Profile & Bio</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -132,7 +127,7 @@ export default function TeamPage() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-brand-navy p-1 transition-colors"
+                      className="text-[#5B6B7F] hover:text-[#B08D3E] p-1 transition-colors"
                       aria-label={`${member.name} LinkedIn Profile`}
                     >
                       <Linkedin className="w-4 h-4" />
@@ -146,18 +141,18 @@ export default function TeamPage() {
       </section>
 
       {/* Consultation Banner */}
-      <section className="bg-brand-navy text-white py-14 border-t border-slate-800">
+      <section className="bg-[#101F38] text-white py-14 border-t border-[#B08D3E]/30">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            Work With Our Experienced Partners
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Engage Our Experienced Chartered Partners
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-slate-300 font-sans">
             Reach out directly to engage Daniel Isibor & Co for your audit, tax management, or accounting advisory needs.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-md"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#B08D3E] text-[#101F38] font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-md"
             >
               <span>Schedule a Meeting</span>
               <ArrowRight className="w-4 h-4 ml-2" />

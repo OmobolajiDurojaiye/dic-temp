@@ -19,7 +19,7 @@ export default function ClientLogo({
 }: ClientLogoProps) {
   const [imageError, setImageError] = useState(false);
 
-  // Generate clean initials for fallback badge
+  // Clean initials for fallback monogram
   const initials = name
     .split(" ")
     .filter((w) => !["and", "&", "of", "the", "for", "in", "ltd", "gte", "limited"].includes(w.toLowerCase()))
@@ -32,10 +32,10 @@ export default function ClientLogo({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between p-6 bg-white rounded-none border border-slate-200 hover:border-brand-cyan hover:shadow-md transition-all duration-200 ${className}`}
+      className={`brass-corner-card group flex flex-col justify-between p-6 ${className}`}
     >
-      {/* Adaptive Logo Container */}
-      <div className="w-full h-24 flex items-center justify-center p-2 rounded bg-slate-50/70 overflow-hidden relative">
+      {/* Adaptive Logo / Seal Container */}
+      <div className="w-full h-24 flex items-center justify-center p-2 bg-[#F6F2E9]/80 border border-[#5B6B7F]/10 overflow-hidden relative ledger-grid-bg">
         {hasValidImage ? (
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -48,24 +48,24 @@ export default function ClientLogo({
             />
           </div>
         ) : (
-          <div className="flex items-center gap-2.5 text-slate-700">
-            <div className="h-10 w-10 flex-shrink-0 rounded bg-brand-navy/10 text-brand-navy flex items-center justify-center font-bold text-xs tracking-wider">
-              {initials || <Building2 className="w-5 h-5 text-brand-navy" />}
+          <div className="flex items-center gap-2.5 text-[#101F38]">
+            <div className="h-10 w-10 flex-shrink-0 border border-[#B08D3E]/40 bg-white text-[#101F38] flex items-center justify-center font-mono font-bold text-xs tracking-wider">
+              {initials || <Building2 className="w-5 h-5 text-[#B08D3E]" />}
             </div>
-            <span className="font-semibold text-xs tracking-wide text-brand-navy text-center line-clamp-2">
+            <span className="font-serif font-bold text-xs tracking-wide text-[#101F38] text-center line-clamp-2">
               {name.split(" ")[0]}
             </span>
           </div>
         )}
       </div>
 
-      {/* Client details */}
-      <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col flex-1 justify-between">
-        <h4 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2 group-hover:text-brand-navy transition-colors">
+      {/* Client Details */}
+      <div className="mt-4 pt-3 border-t border-[#5B6B7F]/15 flex flex-col flex-1 justify-between">
+        <h4 className="font-serif font-bold text-[#101F38] text-sm leading-snug line-clamp-2 group-hover:text-[#B08D3E] transition-colors">
           {name}
         </h4>
         {category && (
-          <p className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mt-2">
+          <p className="text-[10px] font-mono uppercase tracking-wider text-[#5B6B7F] font-semibold mt-2">
             {category}
           </p>
         )}
