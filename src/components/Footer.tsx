@@ -128,8 +128,22 @@ export default function Footer() {
 
       {/* Bottom Copyright */}
       <div className="border-t border-slate-800 bg-[#071626] py-6 px-4 text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p>© {new Date().getFullYear()} Daniel Isibor & Co (Chartered Accountants). All Rights Reserved.</p>
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} Daniel Isibor & Co (Chartered Accountants). All Rights Reserved.</span>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <span>
+              Built by{" "}
+              <a
+                href="https://www.bolaji.tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#3b9fe0] hover:text-white transition-colors underline"
+              >
+                Bolaji
+              </a>
+            </span>
+          </div>
           <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-400">
             <span>FRC Registered</span>
             <span>•</span>

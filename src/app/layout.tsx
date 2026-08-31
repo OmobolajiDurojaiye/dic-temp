@@ -41,8 +41,11 @@ export const metadata: Metadata = {
     "Special purpose audit Nigeria",
     "IFRS financial reporting Nigeria"
   ],
-  authors: [{ name: "Daniel Isibor & Co (Chartered Accountants)" }],
-  creator: "Daniel Isibor & Co",
+  authors: [
+    { name: "Daniel Isibor & Co (Chartered Accountants)" },
+    { name: "Omobolaji Durojaiye", url: "https://www.bolaji.tech/" }
+  ],
+  creator: "Omobolaji Durojaiye",
   publisher: "Daniel Isibor & Co",
   formatDetection: {
     email: true,
@@ -125,6 +128,16 @@ const organizationSchema = {
   "areaServed": {
     "@type": "Country",
     "name": "Nigeria"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Omobolaji Durojaiye",
+    "url": "https://www.bolaji.tech/",
+    "sameAs": [
+      "https://www.linkedin.com/in/omobolaji-durojaiye-527872294/",
+      "https://x.com/bjtolu",
+      "https://github.com/OmobolajiDurojaiye"
+    ]
   },
   "memberOf": [
     { "@type": "Organization", "name": "Financial Reporting Council of Nigeria" },

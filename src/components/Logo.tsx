@@ -15,7 +15,7 @@ export default function Logo({ className = "h-20 sm:h-24 w-auto", light = false 
           alt="Daniel Isibor & Co (Chartered Accountants)"
           width={380}
           height={110}
-          className="h-18 w-auto object-contain scale-[1.25] origin-center"
+          className="h-18 w-auto object-contain scale-[1.3] origin-center"
           priority
         />
       </div>
@@ -23,13 +23,13 @@ export default function Logo({ className = "h-20 sm:h-24 w-auto", light = false 
   }
 
   return (
-    <div className="flex items-center select-none mr-16">
+    <div className="flex items-center select-none mr-24">
       <Image
         src="/images/DIC-LOGO.png"
         alt="Daniel Isibor & Co (Chartered Accountants)"
         width={450}
         height={130}
-        className={`${className} object-contain transition-all scale-[1.8] origin-left`}
+        className={`${className} object-contain transition-all scale-[2.1] origin-left`}
         priority
       />
     </div>
