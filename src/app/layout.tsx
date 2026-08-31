@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   },
   description:
     "Daniel Isibor & Co (Chartered Accountants) is an FRC-registered audit firm in Abuja, Nigeria providing Audit and Assurance, External Audit, Tax Advisory, and Accounting Software Consultancy.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   keywords: [
     "Daniel Isibor & Co",
     "DIC Chartered Accountants",
