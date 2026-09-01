@@ -352,34 +352,6 @@ export const TEAM_DATA: TeamMember[] = [
       "Cash Flow & Working Capital Optimization"
     ],
     linkedin: "https://www.linkedin.com/in/mayowa-omotosho-0985b0124/"
-  },
-  {
-    slug: "idris-husseini",
-    name: "Idris Husseini",
-    role: "Audit Manager",
-    credentials: "ACA, B.Sc, HND, OND",
-    photoUrl: "",
-    shortBio:
-      "Highly skilled chartered accountant with 12 years of experience in auditing MDAs, financial reporting, and complex analysis.",
-    fullBio: [
-      "Idris Husseini is an experienced and highly skilled Chartered Accountant with 12 years of hands-on practice in financial reporting, statutory auditing, and strategic financial analysis.",
-      "Idris possesses strong analytical skills and the ability to evaluate complex financial datasets to provide actionable business insight. He holds a B.Sc in Accounting (Second Class Upper Division) from the Federal University of Gusau, Zamfara State, as well as an HND and OND in Accounting.",
-      "Before joining Daniel Isibor & Co, Idris trained with Anefu, Snoe & Co in Zamfara, where he led major audit engagements and supervised comprehensive statutory audits of Ministries, Departments, and Agencies (MDAs)."
-    ],
-    education: [
-      "B.Sc. in Accounting (Second Class Upper) – Federal University of Gusau",
-      "Higher National Diploma (HND) in Accounting",
-      "National Diploma (OND) in Accounting"
-    ],
-    memberships: [
-      "Institute of Chartered Accountants of Nigeria (ICAN) – Associate (ACA)"
-    ],
-    specialties: [
-      "Public Sector & MDA Auditing",
-      "Statutory Field Audit Leadership",
-      "Financial Statement Verification",
-      "Analytical Review & Risk Assessment"
-    ]
   }
 ];
 

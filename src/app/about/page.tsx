@@ -96,10 +96,10 @@ export default function AboutPage() {
             <div className="lg:col-span-5 space-y-6">
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-slate-100">
                 <Image
-                  src="/images/stock/office-handshake.jpg"
-                  alt="Daniel Isibor & Co corporate client engagement"
+                  src="/images/training/Dees kitchen uteniil raining 2.jpeg"
+                  alt="Daniel Isibor presenting audit findings and team training"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
 

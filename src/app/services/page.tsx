@@ -32,12 +32,12 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   const serviceImages = [
-    "/images/stock/team-meeting.jpg",
-    "/images/stock/team-collaboration.jpg",
-    "/images/stock/man-suit.jpg",
-    "/images/stock/woman-professional.jpg",
-    "/images/stock/office-handshake.jpg",
-    "/images/stock/team-discussion.jpg"
+    "/images/training/1768673182154.jpeg",
+    "/images/training/Dees kitchen uteniil raining 1.jpeg",
+    "/images/Mr Daniel.jpeg",
+    "/images/Mrs Rukayat.jpeg",
+    "/images/training/1768673187119.jpeg",
+    "/images/training/Dees kitchen uteniil raining 2.jpeg"
   ];
 
   return (

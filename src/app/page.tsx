@@ -51,16 +51,16 @@ export default function HomePage() {
                   <div className="flex -space-x-2 overflow-hidden">
                     <div className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-200">
                       <Image
-                        src="/images/stock/woman-professional.jpg"
-                        alt="Client representative"
+                        src="/images/Mrs Rukayat.jpeg"
+                        alt="Mrs Rukayat Hassan-Daniel"
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-200">
                       <Image
-                        src="/images/stock/man-suit.jpg"
-                        alt="Corporate client"
+                        src="/images/Mr Mayowa.png"
+                        alt="Mr Mayowa Omotosho"
                         fill
                         className="object-cover"
                       />
@@ -86,11 +86,11 @@ export default function HomePage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-[4/3] sm:aspect-[16/11]">
                 <Image
-                  src="/images/stock/team-meeting.jpg"
-                  alt="Daniel Isibor & Co professional accounting team in meeting"
+                  src="/images/training/1768673182154.jpeg"
+                  alt="Daniel Isibor delivering tax compliance training to Navy Microfinance Bank management"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -204,11 +204,11 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[3/4] bg-slate-100">
                 <Image
-                  src="/images/stock/team-discussion.jpg"
-                  alt="Daniel Isibor & Co chartered accounting consultants"
+                  src="/images/training/Dees kitchen uteniil raining 1.jpeg"
+                  alt="Daniel Isibor conducting inventory management training session"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>
@@ -403,11 +403,11 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-square bg-slate-100">
                 <Image
-                  src="/images/stock/team-collaboration.jpg"
-                  alt="Daniel Isibor & Co team addressing client questions"
+                  src="/images/training/1768673187119.jpeg"
+                  alt="Daniel Isibor delivering corporate tax compliance session"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="mt-6 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">

@@ -63,8 +63,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
   const teamPhotos: Record<string, string> = {
     "daniel-isibor": "/images/Mr Daniel.jpeg",
     "rukayat-hassan-daniel": "/images/Mrs Rukayat.jpeg",
-    "mayowa-omotosho": "/images/Mr Mayowa.png",
-    "idris-husseini": "/images/stock/team-collaboration.jpg"
+    "mayowa-omotosho": "/images/Mr Mayowa.png"
   };
 
   const photo = member.photoUrl && member.photoUrl.trim() !== "" ? member.photoUrl : (teamPhotos[member.slug] || "/images/stock/man-suit.jpg");

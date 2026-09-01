@@ -28,8 +28,7 @@ export default function TeamPage() {
   const teamPhotos = [
     "/images/Mr Daniel.jpeg",
     "/images/Mrs Rukayat.jpeg",
-    "/images/stock/man-suit.jpg",
-    "/images/stock/team-collaboration.jpg"
+    "/images/Mr Mayowa.png"
   ];
 
   return (
