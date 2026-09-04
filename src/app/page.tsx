@@ -21,11 +21,11 @@ export default function HomePage() {
             {/* Left Hero Text */}
             <div className="lg:col-span-6 space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0e2a47] leading-[1.15]">
-                Smart Accounting for Growing Businesses
+                Audit Firm & Chartered Accountants in Abuja
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 font-sans leading-relaxed max-w-xl">
-                Reliable financial expertise for organizations, businesses, and institutions — ensuring statutory compliance, tax efficiency, and sustainable growth every step of the way.
+                Daniel Isibor & Co provides statutory external audit, tax advisory, and financial assurance for businesses, institutions, and MDAs across Garki II, Abuja, and Nigeria.
               </p>
 
               {/* Action Buttons */}

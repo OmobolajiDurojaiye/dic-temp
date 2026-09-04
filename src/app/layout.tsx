@@ -36,12 +36,17 @@ export const metadata: Metadata = {
   keywords: [
     "Daniel Isibor & Co",
     "DIC Chartered Accountants",
+    "Audit firm in Abuja",
+    "Audit firms in Abuja",
+    "Audit firms in Nigeria",
+    "Audit firms in Garki 2",
+    "Audit firm in Garki II Abuja",
     "Chartered Accountants Abuja",
-    "Audit firm in Abuja Nigeria",
-    "External audit Nigeria",
-    "FRC registered auditor",
-    "Auditor General of Federation registered",
-    "Tax management advisory Abuja",
+    "Chartered Accountants in Abuja Nigeria",
+    "Best audit firms in Abuja",
+    "FRC registered audit firm Abuja",
+    "Auditor General of Federation registered audit practice",
+    "Tax management advisory Garki Abuja",
     "Accounting software consultancy QuickBooks Sage",
     "Special purpose audit Nigeria",
     "IFRS financial reporting Nigeria"
@@ -64,24 +69,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NG",
     url: FIRM_INFO.siteUrl,
-    title: "Daniel Isibor & Co | Chartered Accountants in Abuja, Nigeria",
+    title: "Daniel Isibor & Co | Top Audit Firm & Chartered Accountants in Abuja, Nigeria",
     description:
-      "Licensed audit and advisory firm registered with FRC and the Office of the Auditor General of the Federation. Providing Audit, Tax, and Financial Consulting in Nigeria.",
+      "Licensed audit and advisory firm located in Garki II, Abuja, registered with FRC and the Office of the Auditor General of the Federation. Providing External Audit, Tax Advisory, and Assurance in Nigeria.",
     siteName: "Daniel Isibor & Co",
     images: [
       {
         url: "/images/DIC-LOGO.png",
         width: 800,
         height: 600,
-        alt: "Daniel Isibor & Co Chartered Accountants",
+        alt: "Daniel Isibor & Co Chartered Accountants Abuja",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daniel Isibor & Co | Chartered Accountants Abuja",
+    title: "Daniel Isibor & Co | Audit Firm & Chartered Accountants Abuja",
     description:
-      "FRC-registered audit firm in Abuja providing External Audit, Tax Advisory, and Financial Consulting.",
+      "FRC-registered audit firm in Garki II, Abuja providing External Audit, Tax Advisory, and Financial Consulting across Nigeria.",
     images: ["/images/DIC-LOGO.png"],
   },
   robots: {
@@ -105,6 +110,7 @@ const organizationSchema = {
   "@type": "AccountingService",
   "name": FIRM_INFO.name,
   "alternateName": FIRM_INFO.shortName,
+  "description": "Premier audit firm and chartered accountants in Garki II, Abuja, Nigeria. FRC registered and accredited by the Office of the Auditor General of the Federation.",
   "url": FIRM_INFO.siteUrl,
   "logo": `${FIRM_INFO.siteUrl}/images/DIC-LOGO.png`,
   "image": `${FIRM_INFO.siteUrl}/images/Mr%20Daniel.jpeg`,
@@ -113,8 +119,8 @@ const organizationSchema = {
   "address": {
     "@type": "PostalAddress",
     "streetAddress": FIRM_INFO.address.street,
-    "addressLocality": FIRM_INFO.address.city,
-    "addressRegion": FIRM_INFO.address.state,
+    "addressLocality": "Garki II, Abuja",
+    "addressRegion": "Federal Capital Territory",
     "postalCode": FIRM_INFO.address.postalCode,
     "addressCountry": FIRM_INFO.address.countryCode
   },
@@ -130,10 +136,11 @@ const organizationSchema = {
     "closes": "17:00"
   },
   "priceRange": "$$",
-  "areaServed": {
-    "@type": "Country",
-    "name": "Nigeria"
-  },
+  "areaServed": [
+    { "@type": "City", "name": "Abuja" },
+    { "@type": "AdministrativeArea", "name": "Garki II" },
+    { "@type": "Country", "name": "Nigeria" }
+  ],
   "creator": {
     "@type": "Person",
     "name": "Omobolaji Durojaiye",
