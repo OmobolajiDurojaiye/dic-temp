@@ -47,7 +47,7 @@ export const FIRM_INFO = {
   siteUrl: "https://www.danielisiborandco.com",
   phone: "08036092574",
   phoneE164: "+2348036092574",
-  email: "danielisiborandco@gmail.com",
+  email: "info@danielisiborandco.com",
   address: {
     street: "Suite C2, Silverline Plaza, Plot 1543, Cadastral Zone A03, Safana Close, Garki II",
     city: "Abuja",
@@ -511,7 +511,7 @@ export const FAQS_DATA: FaqItem[] = [
   {
     question: "How can we engage Daniel Isibor & Co for our company’s audit or tax work?",
     answer:
-      "You can book a consultation by reaching out via phone at 08036092574 (+2348036092574), emailing danielisiborandco@gmail.com, or submitting the consultation form on our website. Our partners will promptly review your requirements and provide a tailored scope of service and proposal.",
+      "You can book a consultation by reaching out via phone at 08036092574 (+2348036092574), emailing info@danielisiborandco.com, or submitting the consultation form on our website. Our partners will promptly review your requirements and provide a tailored scope of service and proposal.",
     category: "General"
   }
 ];
