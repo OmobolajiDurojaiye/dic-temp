@@ -265,7 +265,7 @@ export const TEAM_DATA: TeamMember[] = [
     name: "Daniel Isibor",
     role: "Principal Partner",
     credentials: "ACA, ACTI, MCIB, M.Sc, B.Sc",
-    photoUrl: "/images/mr-daniel.jpeg",
+    photoUrl: "/images/Mr Daniel.jpeg",
     shortBio:
       "Seasoned finance professional with over 15 years of experience spanning Accounting, Auditing, Taxation, Enterprise Risk Management, and Banking.",
     fullBio: [

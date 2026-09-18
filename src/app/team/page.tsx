@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function TeamPage() {
   const teamPhotos = [
-    "/images/mr-daniel.jpeg",
+    "/images/Mr Daniel.jpeg",
     "/images/Mrs Rukayat.jpeg",
     "/images/Mr Mayowa.png"
   ];

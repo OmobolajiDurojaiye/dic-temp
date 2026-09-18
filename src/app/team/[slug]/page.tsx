@@ -61,7 +61,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
   const otherTeam = TEAM_DATA.filter((m) => m.slug !== member.slug);
 
   const teamPhotos: Record<string, string> = {
-    "daniel-isibor": "/images/mr-daniel.jpeg",
+    "daniel-isibor": "/images/Mr Daniel.jpeg",
     "rukayat-hassan-daniel": "/images/Mrs Rukayat.jpeg",
     "mayowa-omotosho": "/images/Mr Mayowa.png"
   };

@@ -67,7 +67,7 @@ export default function HomePage() {
                     </div>
                     <div className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-200">
                       <Image
-                        src="/images/mr-daniel.jpeg"
+                        src="/images/Mr Daniel.jpeg"
                         alt="Mr Daniel Isibor"
                         fill
                         className="object-cover"
