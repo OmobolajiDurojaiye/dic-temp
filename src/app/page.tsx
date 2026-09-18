@@ -67,7 +67,7 @@ export default function HomePage() {
                     </div>
                     <div className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-200">
                       <Image
-                        src="/images/Mr Daniel.jpeg"
+                        src="/images/mr-daniel.jpeg"
                         alt="Mr Daniel Isibor"
                         fill
                         className="object-cover"
@@ -86,8 +86,8 @@ export default function HomePage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-[4/3] sm:aspect-[16/11]">
                 <Image
-                  src="/images/training/1768673182154.jpeg"
-                  alt="Daniel Isibor delivering tax compliance training to Navy Microfinance Bank management"
+                  src="/images/new-hero.jpeg"
+                  alt="Daniel Isibor & Co chartered accounting consultants and audit firm in Abuja"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-top"

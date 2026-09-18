@@ -32,9 +32,9 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   const serviceImages = [
-    "/images/training/1768673182154.jpeg",
+    "/images/new-hero.jpeg",
     "/images/training/Dees kitchen uteniil raining 1.jpeg",
-    "/images/Mr Daniel.jpeg",
+    "/images/mr-daniel.jpeg",
     "/images/Mrs Rukayat.jpeg",
     "/images/training/1768673187119.jpeg",
     "/images/training/Dees kitchen uteniil raining 2.jpeg"
