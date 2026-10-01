@@ -87,9 +87,6 @@ export default function ServicesPage() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#0e2a47]">
-                      0{index + 1}. Practice Area
-                    </div>
                   </div>
 
                   <div className="p-7 space-y-3">

@@ -171,7 +171,7 @@ export default async function TeamMemberDetailPage({ params }: TeamMemberPagePro
               <div className="pt-4">
                 <h3 className="text-base font-bold text-[#0e2a47] mb-3 flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-[#143d6b]" />
-                  <span>Practice Areas & Core Specialties</span>
+                  <span>Core Specialties</span>
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {member.specialties.map((spec, sIdx) => (
